@@ -1,4 +1,4 @@
-package coinhelper.web.servlet.store;
+package codehelper.web.servlet.store;
 
 import codehelper.web.servlet.domain.Member;
 

@@ -1,4 +1,4 @@
-package coinhelper.web.servlet.store;
+package codehelper.web.servlet.store;
 
 import java.util.List;
 
