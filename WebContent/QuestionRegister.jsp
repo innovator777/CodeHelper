@@ -9,8 +9,8 @@ pageEncoding="UTF-8"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>질문등록</title>
-<link href="${ctx }/views/resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="${ctx }/views/resources/css/style.css" rel="stylesheet">
+<link href="${ctx }/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="${ctx }/resources/css/style.css" rel="stylesheet">
 </head>
 <body>
 	<input id="lectureId" name="lectureId" type="hidden" value="">
