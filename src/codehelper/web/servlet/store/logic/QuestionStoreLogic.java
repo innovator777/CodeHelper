@@ -19,6 +19,10 @@ public class QuestionStoreLogic implements QuestionStore {
 	@Override
 	public int create(Question question) {
 		SqlSession session = factory.getSession();
+		
+		try {
+			
+		}
 		return 0;
 	}
 
