@@ -7,7 +7,6 @@ public class Member {
 	private String name;
 	private int balance;
 	
-	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -32,8 +31,12 @@ public class Member {
 		return name;
 	}
 	
-	public void seBalance(int balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
+	}
+	
+	public int getBalance() {
+		return balance;
 	}
 
 }

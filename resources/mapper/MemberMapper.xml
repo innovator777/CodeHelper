@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="codehelper.web.servlet.store.mapper.MemberMapper">
+  <select id="selectById" parameterType="string" resultType="Member">
+  	select mId AS id,
+  		   mPassword AS password,
+  		   mName AS name,
+  		   mBalance AS balance
+  	from member_tb
+  	where mId = #{id}
+  </select>
+  
+  <insert id="insert" parameterType="Member">
+  	insert into member_tb(mId, mPassword, mName, mBalance) values(#{id}, #{password}, #{name}, #{balance})
+  </insert>
+  
+  <update id="update" parameterType="Member">
+  	update member_tb set mPassword = #{password}, mName = #{name}, mBalance = #{balance} where mId = #{id}
+  </update>
+  
+  <delete id="delete" parameterType="string">
+  	delete from member_tb where mId = #{id}
+  </delete>
+  
+  </mapper>
+  
+  
