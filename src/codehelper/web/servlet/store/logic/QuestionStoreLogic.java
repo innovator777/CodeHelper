@@ -23,6 +23,12 @@ public class QuestionStoreLogic implements QuestionStore {
 		try {
 			
 		}
+		catch (Exception e) {
+			
+		}
+		finally {
+			
+		}
 		return 0;
 	}
 
