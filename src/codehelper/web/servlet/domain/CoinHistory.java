@@ -5,13 +5,12 @@ public class CoinHistory {
 	public enum Type {
 		CHARGE,
 		EXCHANGE,
-		// 상의 필요
 	}
 	
 	private int id;
-	private Member member;
+	private String member;
 	private Type type;
-	private Question question;
+	private int qId;
 	
 	public int getId() {
 		return id;
@@ -21,11 +20,11 @@ public class CoinHistory {
 		this.id = id;
 	}
 	
-	public Member getMember() {
+	public String getMember() {
 		return member;
 	}
 	
-	public void setMember(Member member) {
+	public void setMember(String member) {
 		this.member = member;
 	}
 	
@@ -37,11 +36,11 @@ public class CoinHistory {
 		this.type = type;
 	}
 	
-	public Question getQuestion() {
-		return question;
+	public int getQId() {
+		return qId;
 	}
 	
-	public void setQuestion(Question question) {
-		this.question = question;
+	public void setQId(int qId) {
+		this.qId = qId;
 	}
 }
