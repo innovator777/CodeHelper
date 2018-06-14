@@ -2,38 +2,50 @@
 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>계좌 등록</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>계좌 등록</title>
+	<link href="${ctx }/resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${ctx }/resources/css/style.css" rel="stylesheet">
+	<style type="text/css">
+	body{
+		margin: 30px 250px 30px 250px;
+	}
+	</style>
 </head>
 <body>
-	<div align="center"><h1>Code Helper</h1></div>
-	
+	<p align="center"><font color=black size=100px>Code Helper</font></p>
+	<br><br><br><br>
 	<div align="center">
 	<br>
 	<form action="#" method="post">
-		<table class="table">
+		<table border="0" width="250">
+			<colgroup>
+				<col width="30%">
+				<col width="70%">
+			</colgroup>
 			<tr>
-				<th><div align="left">은행명</div></th>
+				<th>은행명</th>
 				<td>
-				<input id="bank"  name="bank" type="text" value="">
+					<input id="bankName"  name="bankName" type="text" value=""><p>
 				</td>
 			</tr>
 			<tr>
-				<th><div align="left">계좌번호</div></th>
+				<th>계좌번호</th>
 				<td>
-				<input id="bankNum"  name="bankNum" type="text" value="">
+					<input id="bankNum"  name="bankNum" type="text" value=""><p>
 				</td>
 			</tr>
 			<tr>
-				<th><div align="left">예금주</div></th>
+				<th>예금주</th>
 				<td>
-				<input id="name"  name="name" type="text" value="">
+					<input id="name"  name="name" type="text" value=""><p>
 				</td>
 			</tr>
 		</table><br>
-		<div align="center"><input type="reset" value="취소"> <input type="submit" value="등록"></div>
+		<input class="btn" type="reset" value="취소"> <input class="btn btn-success" type="submit" value="등록">
 	</form>
 	<br>
 	</div>
