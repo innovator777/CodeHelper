@@ -31,5 +31,7 @@
   		<mapper resource="mapper/QuestionMapper.xml"/>
   		<mapper resource="mapper/ReportMapper.xml"/>
   		<mapper resource="mapper/CoinHistoryMapper.xml"/>
+  		<mapper resource="mapper/BankMapper.xml"/>
+  		<mapper resource="mapper/AnswerMapper.xml"/>
   	</mappers>
   </configuration>

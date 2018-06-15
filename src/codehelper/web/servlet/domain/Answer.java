@@ -8,8 +8,9 @@ public class Answer {
 	private String contents;
 	private Date date;
 	private int likeCount;
-	private Member writer;
+	private String memberId;
 	private int isChoose;
+	private int questionId;
 	
 	public int getId() {
 		return id;
@@ -43,14 +44,6 @@ public class Answer {
 		this.likeCount = likeCount;
 	}
 	
-	public Member getWriter() {
-		return writer;
-	}
-	
-	public void setWriter(Member writer) {
-		this.writer = writer;
-	}
-	
 	public int getIsChoose() {
 		return isChoose;
 	}
@@ -58,7 +51,23 @@ public class Answer {
 	public void setIsChoose(int isChoose) {
 		this.isChoose = isChoose;
 	}
-	
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+	public int getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
+
 	
 
 }
