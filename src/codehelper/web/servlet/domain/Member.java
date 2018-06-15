@@ -6,7 +6,7 @@ public class Member {
 	private String password;
 	private String name;
 	private int balance;
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}

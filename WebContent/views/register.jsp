@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
 	<p align="center"><font color=black size=100px>Code Helper</font></p>
 	<div align="center">
 	<br><br>
-	<form action="#" method="post">
+	<form action="${ctx}/Signup.do" method="post">
 		<table border="0" width="500" height="200">
 			<colgroup>
 				<col width="25%">
@@ -33,7 +33,7 @@ pageEncoding="UTF-8"%>
 					<select name="email">
 						<option value="empty" selected>이메일 주소</option>
 						<option value="google.com">google.com</option>
-						<option value="namer.com">naver.com</option>
+						<option value="naver.com">naver.com</option>
 					</select>
 				</td>
 				<td><input class="btn" type="button" value="중복확인"></td>
