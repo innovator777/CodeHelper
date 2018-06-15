@@ -4,9 +4,9 @@ pageEncoding="UTF-8"%>
 
 <c:choose>
 	<c:when test="${userId eq null }">
-		<a href="login.jsp">로그인</a> | <a href="join.jsp">회원가입</a>
+		<a href="login.jsp">로그인</a> | <a href="register.jsp">회원가입</a>
 	</c:when>
 	<c:otherwise>
-		<b>${userId }</b>님 환영합니다. [<a href="logout.do">로그아웃</a>] [<a href="#">마이페이지</a>]
+		<b>${memberName }</b>님 환영합니다. [<a href="logout.do">로그아웃</a>] [<a href="#">마이페이지</a>]
 	</c:otherwise>
 </c:choose>

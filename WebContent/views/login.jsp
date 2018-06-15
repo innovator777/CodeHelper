@@ -2,6 +2,7 @@
 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,7 +20,7 @@ pageEncoding="UTF-8"%>
 	<br><br><br><br>
 	<div align="center">
 	<br>
-	<form action="#" method="post">
+	<form action="${ctx}/login.do" method="post">
 		<table border="0" width="500" height="100">
 			<colgroup>
 				<col width="20%">
@@ -41,6 +42,6 @@ pageEncoding="UTF-8"%>
 	</form>
 	<br>
 	</div>
-	<div align="center"><a href="#">회원가입</a></div>
+	<div align="center"><a href="${ctx}/register.jsp">회원가입</a></div>
 </body>
 </html>

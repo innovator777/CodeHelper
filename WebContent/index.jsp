@@ -6,6 +6,6 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<c:redirect url="list.do"/>
+	<c:redirect url="views/list.jsp"/>
 </body>
 </html>

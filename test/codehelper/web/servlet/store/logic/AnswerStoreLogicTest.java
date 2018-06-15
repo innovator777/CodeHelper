@@ -1,10 +1,9 @@
 package codehelper.web.servlet.store.logic;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
-import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,18 +20,18 @@ public class AnswerStoreLogicTest {
 		answerStore = new AnswerStoreLogic();
 	}
 
-//	@Test
-//	public void testCreate() {
-//		Answer answer = new Answer();
-//		Date today = new Date(Calendar.getInstance().getTimeInMillis());
-//		answer.setContents("adsf");
-//		answer.setLikeCount(1);
-//		answer.setIsChoose(1);
-//		answer.setDate(today);
-//		answer.setMemberId("koys");
-//		answer.setQuestionId(1);
-//		answerStore.create(answer);
-//	}
+	@Test
+	public void testCreate() {
+		Answer answer = new Answer();
+		Date today = new Date(Calendar.getInstance().getTimeInMillis());
+		answer.setContents("adsf");
+		answer.setLikeCount(1);
+		answer.setIsChoose(1);
+		answer.setCreatedDate(today);
+		answer.setMemberId("koys");
+		answer.setQuestionId(1);
+		answerStore.create(answer);
+	}
 
 //	@Test
 //	public void testUpdate() {

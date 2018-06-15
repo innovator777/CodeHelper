@@ -19,9 +19,12 @@ public class AnswerStoreLogic implements AnswerStore{
 	@Override
 	public int create(Answer answer) {
 		SqlSession session = factory.getSession();
+		
+		int result=0;
+		
 		try {
 			AnswerMapper mapper = session.getMapper(AnswerMapper.class);
-			mapper.insert(answer);
+			result=mapper.insert(answer);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -30,7 +33,7 @@ public class AnswerStoreLogic implements AnswerStore{
 			session.commit();
 			session.close();
 		}
-		return 0;
+		return result;
 	}
 
 	@Override

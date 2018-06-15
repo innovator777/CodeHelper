@@ -5,52 +5,12 @@ import java.util.List;
 import codehelper.web.servlet.domain.Answer;
 
 public interface AnswerService {
-	
-	/**
-     *  
-     * 
-     * @param  
-     * @return
-     */
+
 	int addAnswer(Answer answer);
-	
-	/**
-     *  
-     * 
-     * @param  
-     * @return
-     */
-	int modifyAnswer(Answer answer);
-	
-	/**
-     *  
-     * 
-     * @param  
-     * @return
-     */
-	void removeAnswer(int id);
-	
-	/**
-     *  
-     * 
-     * @param  
-     * @return
-     */
+	void modifyAnswer(Answer answer);
+	int removeAnswer(int id);
 	List<Answer> findByQuestion(int qid);
-	
-	/**
-     *  
-     * 
-     * @param  
-     * @return
-     */
 	boolean choose(int qid, int aid);
-	
-	/**
-     *  
-     * 
-     * @param  
-     * @return
-     */
 	int liked(int id);
+	
 }
