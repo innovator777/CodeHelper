@@ -8,9 +8,11 @@ public class CoinHistory {
 	}
 	
 	private int id;
-	private String member;
+	private String memberId;
 	private Type type;
-	private int qId;
+	private int questionId;
+	private int amount;
+	private int balance;
 	
 	public int getId() {
 		return id;
@@ -19,13 +21,12 @@ public class CoinHistory {
 		this.id = id;
 	}
 	
-	public String getMember() {
-		return member;
+	public String getMemberId() {
+		return memberId;
 	}
 	
-	public void setMember(String member) {
-		this.member = member;
-
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	public Type getType() {
 		return type;
@@ -34,12 +35,28 @@ public class CoinHistory {
 		this.type = type;
 	}
 	
-	public int getQId() {
-		return qId;
+	public int getQuestionId() {
+		return questionId;
 	}
 	
-	public void setQId(int qId) {
-		this.qId = qId;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
+	
+	public int getAmount() {
+		return amount;
+	}
+	
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	
+	public int getBalance() {
+		return balance;
+	}
+	
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 	
 }

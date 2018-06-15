@@ -8,12 +8,12 @@ public class Report {
 	}
 	
 	private int id;
-	private String writer;
+	private String memberId;
 	private Type contents;
 	private Date date;
-	private int qId;
-	private int aId;
-
+	private int questionId;
+	private int answerId;
+	private String attacker;
 	private boolean check;
 	
 	public int getId() {
@@ -23,12 +23,12 @@ public class Report {
 		this.id = id;
 	}
 	
-	public String getWriter() {
-		return writer;
+	public String getMemberId() {
+		return memberId;
 	}
 	
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 
 	}
 	public Type getContents() {
@@ -44,26 +44,36 @@ public class Report {
 		this.date = date;
 	}
 	
-	public int getQId() {
-		return qId;
+	public int getQuestionId() {
+		return questionId;
 	}
 	
-	public void setQId(int qId) {
-		this.qId = qId;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
 	
-	public int getAId() {
-		return aId;
+	public int getAnswerId() {
+		return answerId;
 	}
 	
-	public void setAId(int aId) {
-		this.aId = aId;
+	public void setAnswerId(int answerId) {
+		this.answerId = answerId;
 	}
+	
 	public boolean isCheck() {
 		return check;
 	}
+	
 	public void setCheck(boolean check) {
 		this.check = check;
+	}
+	
+	public String getAttacker() {
+		return attacker;
+	}
+	
+	public void setAttacker(String attacker) {
+		this.attacker = attacker;
 	}
 
 }
