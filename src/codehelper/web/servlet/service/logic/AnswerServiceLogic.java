@@ -15,7 +15,6 @@ public class AnswerServiceLogic implements AnswerService{
 	
 	public AnswerServiceLogic() {
 		answerStore = new AnswerStoreLogic();
-		
 	}
 	
 	@Override
@@ -43,8 +42,7 @@ public class AnswerServiceLogic implements AnswerService{
 
 		int result=0;
 		
-		result = answerStore.delete(id);
-		
+		result = answerStore.delete(id);	
 		return result;
 	}
 
@@ -66,9 +64,7 @@ public class AnswerServiceLogic implements AnswerService{
 		int result=0;
 		
 		Answer answer = new Answer();
-		
-		answer.setId(id);
-		
+		answer.setId(id);		
 		return result;
 	}
 
