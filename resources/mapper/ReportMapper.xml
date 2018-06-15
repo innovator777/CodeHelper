@@ -8,26 +8,28 @@
 	<select id="retrieveAll" resultType="Report">
 		Select rId AS id,
 			   rContents AS contents,
+			   mId AS memberId,
+			   rAttacker AS attacker,
 			   rDate AS date,
 			   rCheck AS check,
-			   qId,
-			   aId
+			   qId AS questionId,
+			   aId AS answerId
 		from report_tb
 	</select>
 	
 	<insert id="create" parameterType="Report">
-		<selectKey keyProperty="reportId" resultType="int" order="BEFORE">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
 			Select report_seq.nextval from dual
 		</selectKey>
 		
-		Insert into report_tb(rId, rContents, rDate, rCheck, qId, aId)
-		values(#{reportId}, #{contents}, #{date}, #{check}, #{qId}, #{aId})
+		Insert into report_tb(rId, rContents, mId, rAttacker, rDate, rCheck, qId, aId)
+		values(#{id}, #{contents}, #{memberId}, #{attacker}, #{date}, #{check}, #{qId}, #{aId})
 	</insert>
 	
 	<update id="update" parameterType="Report">
 		Update report_tb
 		set rCheck = #{check}
-		where rId = ${id}
+		where rId = #{id}
 	</update>
 	
 </mapper>
