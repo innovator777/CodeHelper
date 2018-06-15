@@ -2,36 +2,52 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
-  
-  <configuration>
-  	<typeAliases>
-  		<typeAlias type="codehelper.web.servlet.domain.Member" alias="Member"/>
-  		<typeAlias type="codehelper.web.servlet.domain.Question" alias="Question"/>
-  		<typeAlias type="codehelper.web.servlet.domain.Answer" alias="Answer"/>
-  		<typeAlias type="codehelper.web.servlet.domain.Bank" alias="Bank"/>
-  		<typeAlias type="codehelper.web.servlet.domain.Report" alias="Report"/>
-  		<typeAlias type="codehelper.web.servlet.domain.CoinHistory" alias="CoinHistory"/>
-  	</typeAliases>
-  
-  	<environments default="development">
-	    <environment id="development">
-	      <transactionManager type="JDBC"/>
-	      <dataSource type="POOLED">
-	        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-	        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-	        <property name="username" value="hr"/>
-	        <property name="password" value="hr"/>
-	      </dataSource>
-	    </environment>
-  	</environments>
-  	
-  	<mappers>
-  		<mapper resource="mapper/MemberMapper.xml"/>
-  		<mapper resource="mapper/QuestionMapper.xml"/>
-  		<mapper resource="mapper/ReportMapper.xml"/>
-  		<mapper resource="mapper/CoinHistoryMapper.xml"/>
-  		<mapper resource="mapper/AnswerMapper.xml"/>
-  		<mapper resource="mapper/BankMapper.xml"/>
-  	</mappers>
-  </configuration>
+
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="codehelper.web.servlet.domain.Member"
+			alias="Member" />
+		<typeAlias type="codehelper.web.servlet.domain.Question"
+			alias="Question" />
+		<typeAlias type="codehelper.web.servlet.domain.Answer"
+			alias="Answer" />
+		<typeAlias type="codehelper.web.servlet.domain.Bank" alias="Bank" />
+		<typeAlias type="codehelper.web.servlet.domain.Report"
+			alias="Report" />
+		<typeAlias type="codehelper.web.servlet.domain.CoinHistory"
+			alias="CoinHistory" />
+		<typeAlias type="codehelper.web.servlet.domain.ReportType"
+			alias='ReportType' />
+	</typeAliases>
+
+	<typeHandlers>
+		<typeHandler javaType="codehelper.web.servlet.domain.ReportType"
+			handler="codehelper.web.servlet.store.mapper.ReportTypeHandler" />
+
+		<typeHandler javaType="codehelper.web.servlet.domain.CoinHistoryType"
+			handler="codehelper.web.servlet.store.mapper.CoinHistoryTypeHandler" />
+	</typeHandlers>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<property name="username" value="hr" />
+				<property name="password" value="hr" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="mapper/MemberMapper.xml" />
+		<mapper resource="mapper/QuestionMapper.xml" />
+		<mapper resource="mapper/ReportMapper.xml" />
+		<mapper resource="mapper/CoinHistoryMapper.xml" />
+		<mapper resource="mapper/AnswerMapper.xml" />
+		<mapper resource="mapper/BankMapper.xml" />
+	</mappers>
+
+</configuration>

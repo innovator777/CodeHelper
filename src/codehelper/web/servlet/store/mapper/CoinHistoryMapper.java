@@ -5,6 +5,6 @@ import java.util.List;
 import codehelper.web.servlet.domain.CoinHistory;
 
 public interface CoinHistoryMapper {
-	int create(CoinHistory history, int coinAmount);
-	List<CoinHistory> retrieveByMember(String member);
+	int insert(CoinHistory coinHistory);
+	List<CoinHistory> retrieveByMember(String memberId);
 }

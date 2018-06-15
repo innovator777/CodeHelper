@@ -22,7 +22,7 @@ public class ReportStoreLogic implements ReportStore{
 		int result = 0;
 		try {
 			ReportMapper mapper = session.getMapper(ReportMapper.class);
-			result = mapper.create(report);
+			result = mapper.insert(report);
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -34,14 +34,32 @@ public class ReportStoreLogic implements ReportStore{
 
 	@Override
 	public void update(Report report) {
-		// TODO Auto-generated method stub
-		
+		SqlSession session = factory.getSession();
+		try {
+			ReportMapper mapper = session.getMapper(ReportMapper.class);
+			mapper.update(report);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
 	}
 
 	@Override
 	public List<Report> retrieveAll() {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = factory.getSession();
+		List<Report> result = null;
+		try {
+			ReportMapper mapper = session.getMapper(ReportMapper.class);
+			result = mapper.retrieveAll();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return result;
 	}
 
 }
