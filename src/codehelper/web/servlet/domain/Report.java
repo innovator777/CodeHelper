@@ -5,15 +5,15 @@ import java.util.Date;
 public class Report {
 	
 	public enum Type {
-		// 상의 필요
 	}
 	
 	private int id;
-	private String writerId;
+	private String writer;
 	private Type contents;
 	private Date date;
-	private String questionId;
-	private String answerId;
+	private int qId;
+	private int aId;
+
 	private boolean check;
 	
 	public int getId() {
@@ -22,11 +22,14 @@ public class Report {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getWriterId() {
-		return writerId;
+	
+	public String getWriter() {
+		return writer;
 	}
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
+	
+	public void setWriter(String writer) {
+		this.writer = writer;
+
 	}
 	public Type getContents() {
 		return contents;
@@ -40,17 +43,21 @@ public class Report {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getQuestionId() {
-		return questionId;
+	
+	public int getQId() {
+		return qId;
 	}
-	public void setQuestionId(String questionId) {
-		this.questionId = questionId;
+	
+	public void setQId(int qId) {
+		this.qId = qId;
 	}
-	public String getAnswerId() {
-		return answerId;
+	
+	public int getAId() {
+		return aId;
 	}
-	public void setAnswerId(String answerId) {
-		this.answerId = answerId;
+	
+	public void setAId(int aId) {
+		this.aId = aId;
 	}
 	public boolean isCheck() {
 		return check;

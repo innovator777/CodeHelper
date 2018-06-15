@@ -11,16 +11,15 @@
 		<link href="${ctx }/resources/css/bootstrap.min.css" rel="stylesheet">
 		<link href="${ctx }/resources/css/style.css" rel="stylesheet">
 		<style type="text/css">
-		.header {
-			margin-right: 200px;
+		body{
+			margin: 30px 250px 30px 250px;
 		}
 		</style>
 	</head>
 	<body>
-		<br><br>
 		<p align="center"><font color=black size=100px>Code Helper</font></p>
-		<div class="header" align="right">
-		<%@ include file="header.jspf" %>
+		<div align="right">
+			<%@ include file="header.jspf" %>
 		</div>
 		<br>
 		<center>
