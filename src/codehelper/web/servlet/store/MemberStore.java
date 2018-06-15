@@ -8,5 +8,6 @@ public interface MemberStore {
 	void update(Member member);
 	void delete(String id);
 	Member retrieve(String id);
+	String retrieveWithPassword(Member member);
 
 }

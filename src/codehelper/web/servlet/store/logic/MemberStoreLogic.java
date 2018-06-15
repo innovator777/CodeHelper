@@ -66,17 +66,32 @@ public class MemberStoreLogic implements MemberStore {
 	@Override
 	public Member retrieve(String id) {
 		SqlSession session = factory.getSession();
-		Member memeber = null;
+		Member member = null;
 		
 		try {
 			MemberMapper mapper = session.getMapper(MemberMapper.class);
-			memeber = mapper.selectById(id);
+			member = mapper.selectById(id);
 		}
 		finally {
 			session.close();
 		}
 		
-		return memeber;
+		return member;
+	}
+
+	@Override
+	public String retrieveWithPassword(Member member) {
+		SqlSession session = factory.getSession();
+		String memberId = null;
+		
+		try {
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			memberId = mapper.selectByPassword(member);
+		}
+		finally {
+			session.close();
+		}
+		return memberId;
 	}
 
 }

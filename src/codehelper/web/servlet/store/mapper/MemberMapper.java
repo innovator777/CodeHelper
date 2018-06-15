@@ -8,4 +8,6 @@ public interface MemberMapper {
 	void update(Member member);
 	int delete(String memberId);
 	Member selectById(String memberId);
+	String selectByPassword(Member member);
+	
 }

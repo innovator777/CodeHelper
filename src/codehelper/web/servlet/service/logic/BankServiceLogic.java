@@ -17,7 +17,6 @@ public class BankServiceLogic implements BankService{
 	
 	@Override
 	public int addBankInfo(Bank bank) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

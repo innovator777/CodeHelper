@@ -22,7 +22,7 @@ public class MemberStoreLogicTest {
 //		Member member = new Member();
 //		member.setId("a@bu.ac.kr");
 //		member.setPassword("123");
-//		member.setName("세글자");
+//		member.setName("jin");
 //		String id = memberStore.create(member);
 //		assertEquals("a@bu.ac.kr", member.getId());
 	}
@@ -30,9 +30,9 @@ public class MemberStoreLogicTest {
 	@Test
 	public void testUpdate() {
 //		Member member = memberStore.retrieve("a@bu.ac.kr");
-//		member.setName("네글자");
+//		member.setName("jin");
 //		memberStore.update(member);
-//		assertEquals("네글자", memberStore.retrieve("a@bu.ac.kr").getName());
+//		assertEquals("jin", memberStore.retrieve("a@bu.ac.kr").getName());
 	}
 
 	@Test
@@ -45,6 +45,15 @@ public class MemberStoreLogicTest {
 	public void testRetrieve() {
 //		Member member = memberStore.retrieve("a@bu.ac.kr");
 //		assertNotNull(member);
+	}
+	
+	@Test
+	public void testRetrieveWithPassword() {
+		Member member = new Member();
+		member.setId("a@bu.ac.kr");
+		member.setPassword("123");
+		String memberId = memberStore.retrieveWithPassword(member);
+		assertNotNull(memberId);
 	}
 
 }

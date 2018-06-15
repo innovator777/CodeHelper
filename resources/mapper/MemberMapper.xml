@@ -14,6 +14,12 @@
   	where mId = #{id}
   </select>
   
+  <select id="selectByPassword" parameterType="Member" resultType="string">
+  	select mId AS id
+  	from member_tb
+  	where mId = #{id} and mPassword = #{password}
+  </select>
+  
   <insert id="insert" parameterType="Member">
   	insert into member_tb(mId, mPassword, mName, mBalance) values(#{id}, #{password}, #{name}, #{balance})
   </insert>
