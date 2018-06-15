@@ -5,8 +5,7 @@ import java.util.List;
 import codehelper.web.servlet.domain.Report;
 
 public interface ReportMapper {
-	
-	int insert(Report report);
+	int create(Report report);
 	void update(Report report);
-	List<Report> selectAll();
+	List<Report> retrieveAll();
 }
