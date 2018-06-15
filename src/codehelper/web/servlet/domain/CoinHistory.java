@@ -9,39 +9,34 @@ public class CoinHistory {
 	}
 	
 	private int id;
-	private Member member;
+	private String memberId;
 	private Type type;
-	private Question question;
+	private String questionId;
+	//Date 정보가 없음 이대로 갈것인가?
 	
 	public int getId() {
 		return id;
 	}
-	
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public Member getMember() {
-		return member;
+	public String getMemberId() {
+		return memberId;
 	}
-	
-	public void setMember(Member member) {
-		this.member = member;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-	
-	public Type getKind() {
+	public Type getType() {
 		return type;
 	}
-	
-	public void setKind(Type type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
-	
-	public Question getQuestion() {
-		return question;
+	public String getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(String questionId) {
+		this.questionId = questionId;
 	}
 	
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
 }

@@ -1,5 +1,6 @@
-package codehelper.web.servlet.store.logic;
+package codehelper.web.servlet.store.logic; 
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -7,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.domain.Question;
 import codehelper.web.servlet.store.QuestionStore;
+import codehelper.web.servlet.store.mapper.QuestionMapper;
 
 public class QuestionStoreLogic implements QuestionStore {
 	
@@ -19,42 +21,116 @@ public class QuestionStoreLogic implements QuestionStore {
 	@Override
 	public int create(Question question) {
 		SqlSession session = factory.getSession();
-		
+		int result = 0;
 		try {
-			
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			 result = mapper.insert(question);
 		}
 		catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		finally {
-			
+			session.commit();
+			session.close();
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
 	public void update(Question question) {
+		SqlSession session = factory.getSession();
 		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			mapper.update(question);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
 	}
 
 	@Override
-	public void delete(int id) {
+	public int delete(int id) {
+		SqlSession session = factory.getSession();
 		
+		int result = 0;
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.delete(id);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return result;
 	}
 
 	@Override
-	public Question retrieve(int id) {
-		return null;
+	public Question retrieve(int questionId) {
+		SqlSession session = factory.getSession();
+		
+		Question result = null;
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.selectById(questionId);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return result;
 	}
 
 	@Override
 	public List<Question> retrieveByMember(Member member) {
-		return null;
+		SqlSession session = factory.getSession();
+		
+		List<Question> result = null;
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.selectByMember(member.getId());
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return result;
 	}
 
 	@Override
 	public List<Question> retrieveAll() {
-		return null;
+		SqlSession session = factory.getSession();
+		
+		List<Question> result = null;
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.selectAll();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return result;
 	}
 
 }

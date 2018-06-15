@@ -9,66 +9,54 @@ public class Report {
 	}
 	
 	private int id;
-	private Member writer;
+	private String writerId;
 	private Type contents;
 	private Date date;
-	private Question question;
-	private Answer answer;
+	private String questionId;
+	private String answerId;
 	private boolean check;
 	
 	public int getId() {
 		return id;
 	}
-	
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public Member getWriter() {
-		return writer;
+	public String getWriterId() {
+		return writerId;
 	}
-	
-	public void setWriter(Member writer) {
-		this.writer = writer;
+	public void setWriterId(String writerId) {
+		this.writerId = writerId;
 	}
-	
 	public Type getContents() {
 		return contents;
 	}
-	
 	public void setContents(Type contents) {
 		this.contents = contents;
 	}
-	
 	public Date getDate() {
 		return date;
 	}
-	
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	public Question getQuestion() {
-		return question;
+	public String getQuestionId() {
+		return questionId;
 	}
-	
-	public void setQuestion(Question question) {
-		this.question = question;
+	public void setQuestionId(String questionId) {
+		this.questionId = questionId;
 	}
-	
-	public Answer getAnswer() {
-		return answer;
+	public String getAnswerId() {
+		return answerId;
 	}
-	
-	public void setAnswer(Answer answer) {
-		this.answer = answer;
+	public void setAnswerId(String answerId) {
+		this.answerId = answerId;
 	}
-	
 	public boolean isCheck() {
 		return check;
 	}
-	
 	public void setCheck(boolean check) {
 		this.check = check;
 	}
+
 }

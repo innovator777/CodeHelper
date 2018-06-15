@@ -9,7 +9,7 @@ public interface QuestionStore {
 	
 	int create(Question question);
 	void update(Question question);
-	void delete(int id);
+	int delete(int id);
 	Question retrieve(int id);
 	List<Question> retrieveByMember(Member member);
 	List<Question> retrieveAll();

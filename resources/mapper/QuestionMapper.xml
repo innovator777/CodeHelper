@@ -2,53 +2,64 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  
-  <mapper namespace="codehelper.web.servlet.store.mapper.QuestionMapper">
-  <select id="selectById" parameterType="string" resultType="Question">
-  	select qId AS id,
-  		   qTitle AS title,
-  		   qContents AS contents,
-  		   qDate AS date,
-  		   qReadCount AS readCount;
-  		   qAnswersCount AS answersCount
-  		   qChoose AS isChoose
-  	from question_tb
-  	where qId = #{id}
-  </select>
-  
-  <select id="selectAll" resultType="Question">
-  	select qId AS id,
-  		   qTitle AS title,
-  		   qContents AS contents,
-  		   qDate AS date,
-  		   qReadCount AS readCount;
-  		   qAnswersCount AS answersCount
-  		   qChoose AS isChoose
-  	from question_tb
-  </select>
-  
-  <insert id="insert" parameterType="Question">
-  	insert into question_tb(qId, qTitle, qContents, qDate, qReadCount, qAnswersCount, qChoose, mId) 
-  	values 
-  	(#{id}, #{title}, #{contents}, #{date}, #{readCount}, #{answersCount}, #{isChoose}, #{writer})
-  </insert>
-  
-  <update id="update" parameterType="Question">
-  	update question_tb set 
-  	qTitle = #{title}, 
-  	qContents = #{contents}, 
-  	qDate = #{date}, 
-  	qReadCount = #{readCount}, 
-  	qAnswersCount = #{answersCount},
-  	qChoose = #{isChoose},
-  	mId = #{writer}
-  	where qId = #{id}
-  </update>
-  
-  <delete id="delete" parameterType="string">
-  	delete from question_tb where qId = #{id}
-  </delete>
-  
-  </mapper>
+
+<mapper namespace="codehelper.web.servlet.store.mapper.QuestionMapper">
+
+	<select id="selectById" parameterType="int" resultType="Question">
+		select 
+		qId AS id,
+		qTitle AS title,
+		qContents AS contents,
+		qReadCount AS readCount,		
+		qChoose AS isChoose,
+		mId AS writerId
+		from question_tb
+		where QID = #{questionId}
+	</select>
+	
+	<select id="selectByMember" parameterType="string" resultType="Question">
+		select qId AS id,
+		qTitle AS title,
+		qContents AS contents,
+		qReadCount AS readCount,
+		qChoose AS isChoose,
+		mId AS writerId
+		from question_tb
+		where mId = #{memberId}
+	</select>
+
+	<select id="selectAll" resultType="Question">
+		select qId AS id,
+		qTitle AS title,
+		qContents AS contents,
+		qReadCount AS readCount,
+		qChoose AS isChoose,
+		mId as writerId
+		from question_tb
+	</select>
+
+	<insert id="insert" parameterType="Question" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			select question_seq.nextval from dual
+		</selectKey>
+		insert into question_tb(qId, qTitle, qContents, qDate, qReadCount, qChoose, mId)
+		values
+		(#{id}, #{title}, #{contents}, #{date}, #{readCount}, #{isChoose}, #{writerId})
+	</insert>
+
+	<update id="update" parameterType="Question">
+		update question_tb set
+		qTitle = #{title},
+		qContents = #{contents},
+		qDate = #{date},
+		qReadCount = #{readCount},
+		qChoose = #{isChoose}
+		where qId = #{id}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from question_tb where qId = #{id}
+	</delete>
+
+</mapper>
   

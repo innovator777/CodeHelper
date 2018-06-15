@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
   
-  
   <configuration>
   	<typeAliases>
   		<typeAlias type="codehelper.web.servlet.domain.Member" alias="Member"/>
@@ -29,5 +28,8 @@
   	
   	<mappers>
   		<mapper resource="mapper/MemberMapper.xml"/>
+  		<mapper resource="mapper/QuestionMapper.xml"/>
+  		<mapper resource="mapper/ReportMapper.xml"/>
+  		<mapper resource="mapper/CoinHistoryMapper.xml"/>
   	</mappers>
   </configuration>
