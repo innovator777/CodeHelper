@@ -4,8 +4,8 @@ import codehelper.web.servlet.domain.Member;
 
 public interface MemberMapper {
 	
-	void insert(Member member);
+	int insert(Member member);
 	void update(Member member);
-	void delete(String memberId);
+	int delete(String memberId);
 	Member selectById(String memberId);
 }

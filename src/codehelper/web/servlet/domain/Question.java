@@ -9,7 +9,7 @@ public class Question implements Serializable {
 	private int id;
 	private String title;
 	private String contents;
-	private Date date;
+	private Date createDate;
 	private int readCount;
 	private String writerId;
 	private int isChoose;
@@ -33,11 +33,11 @@ public class Question implements Serializable {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Date getDate() {
-		return date;
+	public Date getCreateDate() {
+		return createDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	public int getReadCount() {
 		return readCount;

@@ -30,45 +30,46 @@ public class QuestionStoreLogicTest {
 //		question.setTitle("질문 타이틀");
 //		question.setContents("질문 내용");
 //		Date today = new Date(Calendar.getInstance().getTimeInMillis());
-//		question.setDate(today);
-//		question.setWriterId("qwe@bu.ac.kr");
+//		question.setCreateDate(today);
+//		question.setWriterId("zxc@bu.ac.kr");
 //		assertEquals(1, store.create(question));
 	}
 
 	@Test
 	public void testUpdate() {
 //		Question question = new Question();
-//		question.setId(1);
+//		question.setId(4);
 //		question.setTitle("질문 타이틀");
 //		question.setContents("질문 내용");
-//		question.setDate(new Date());
-//		question.setWriterId("abc@bu.ac.kr");
+//		Date today = new Date(Calendar.getInstance().getTimeInMillis());
+//		question.setCreateDate(today);
+//		question.setWriterId("zxc@bu.ac.kr");
 //		question.setReadCount(2);
 //		store.update(question);	
 	}
 
 	@Test
 	public void testDelete() {
-//		assertEquals(1, store.delete(1));
+//		assertEquals(1, store.delete(3));
 	}
 
 	@Test
 	public void testRetrieve() {
-//		assertEquals(2, store.retrieve(2).getId());
+//		assertNotNull(store.retrieve(1));
+//		assertEquals(1, store.retrieve(1).getId());
 	}
 
 	@Test
 	public void testRetrieveByMember() {
-		Member member = new Member();
-		member.setId("asd@bu.ac.kr");
-		List<Question> list = store.retrieveByMember(member);
-		assertEquals(2, list.get(0).getId());
+//		Member member = new Member();
+//		member.setId("asd@bu.ac.kr");
+//		List<Question> list = store.retrieveByMember(member);
+//		assertEquals(2, list.get(0).getId());
 	}
 
 	@Test
 	public void testRetrieveAll() {
-		List<Question> list = store.retrieveAll();
-		assertEquals(4, list.size());
+//		List<Question> list = store.retrieveAll();
+//		assertEquals(2, list.size());
 	}
-
 }

@@ -10,17 +10,19 @@
 		qId AS id,
 		qTitle AS title,
 		qContents AS contents,
+		qDate AS createDate,
 		qReadCount AS readCount,		
 		qChoose AS isChoose,
 		mId AS writerId
 		from question_tb
-		where QID = #{questionId}
+		where qId = #{id}
 	</select>
 	
 	<select id="selectByMember" parameterType="string" resultType="Question">
 		select qId AS id,
 		qTitle AS title,
 		qContents AS contents,
+		qDate AS createDate,
 		qReadCount AS readCount,
 		qChoose AS isChoose,
 		mId AS writerId
@@ -32,6 +34,7 @@
 		select qId AS id,
 		qTitle AS title,
 		qContents AS contents,
+		qDate AS createDate,
 		qReadCount AS readCount,
 		qChoose AS isChoose,
 		mId as writerId
@@ -44,14 +47,14 @@
 		</selectKey>
 		insert into question_tb(qId, qTitle, qContents, qDate, qReadCount, qChoose, mId)
 		values
-		(#{id}, #{title}, #{contents}, #{date}, #{readCount}, #{isChoose}, #{writerId})
+		(#{id}, #{title}, #{contents}, #{createDate}, #{readCount}, #{isChoose}, #{writerId})
 	</insert>
 
 	<update id="update" parameterType="Question">
 		update question_tb set
 		qTitle = #{title},
 		qContents = #{contents},
-		qDate = #{date},
+		qDate = #{createDate},
 		qReadCount = #{readCount},
 		qChoose = #{isChoose}
 		where qId = #{id}
