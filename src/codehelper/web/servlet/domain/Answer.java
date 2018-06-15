@@ -6,7 +6,7 @@ public class Answer {
 	
 	private int id;
 	private String contents;
-	private Date date;
+	private Date createdDate;
 	private int likeCount;
 	private String memberId;
 	private int isChoose;
@@ -26,14 +26,6 @@ public class Answer {
 	
 	public void setContents(String contents) {
 		this.contents = contents;
-	}
-	
-	public Date getDate() {
-		return date;
-	}
-	
-	public void setDate(Date date) {
-		this.date = date;
 	}
 	
 	public int getLikeCount() {
@@ -66,6 +58,14 @@ public class Answer {
 
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	

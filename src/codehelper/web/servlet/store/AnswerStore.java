@@ -8,7 +8,7 @@ public interface AnswerStore {
 	
 	int create(Answer answer);
 	void update(Answer answer);
-	void delete(int id);
-	List<Answer> retrieveByQuestion(int qid);
+	int delete(int id);
+	List<Answer> retrieveByQuestion(int questionId);
 
 }

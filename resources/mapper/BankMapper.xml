@@ -1,1 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="codehelper.web.servlet.store.mapper.BankMapper">
+
+	<insert id= "insert" parameterType="Bank">
+	  	<selectKey keyProperty="id" resultType="int" order="BEFORE">
+	  		select bank_seq.nextval from dual
+	  	</selectKey>
+  	insert into bank_tb(bId, bName, bNum, bOwner, mId) values (#{id}, #{name}, #{accountNumber}, #{accountHolder}, #{mId})
+    </insert>
+  
+    <delete id="delete" parameterType="int">
+  	delete from bank_tb where bId = #{id}
+    </delete>
+    
+    <select id="selectByMember" parameterType="string" resultType="Bank">
+  	select bId AS id,
+  	bName AS name,
+  	bNum AS accountNumber,
+  	bOwner AS accountHolder
+	from bank_tb
+	where mid = #{mId}
+	</select>
+	
+</mapper>

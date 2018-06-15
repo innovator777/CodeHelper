@@ -20,7 +20,7 @@ public interface AnswerService {
      * @param  
      * @return
      */
-	void modifyAnswer(Answer answer);
+	int modifyAnswer(Answer answer);
 	
 	/**
      *  

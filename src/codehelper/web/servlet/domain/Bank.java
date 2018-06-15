@@ -6,6 +6,7 @@ public class Bank {
 	private String name;
 	private String accountNumber;
 	private String accountHolder;
+	private String mId;
 	
 	public int getId() {
 		return id;
@@ -37,5 +38,13 @@ public class Bank {
 	
 	public void setAccountHolder(String accountHolder) {
 		this.accountHolder = accountHolder;
+	}
+
+	public String getmId() {
+		return mId;
+	}
+
+	public void setmId(String mId) {
+		this.mId = mId;
 	}
 }

@@ -22,7 +22,7 @@ public interface BankService {
      * @param  
      * @return
      */
-	void removeBankInfo(int id);
+	int removeBankInfo(int id);
 	
 	
 	/**
@@ -31,6 +31,6 @@ public interface BankService {
      * @param  
      * @return
      */
-	List<Bank> findByMember(String id);
+	List<Bank> findByMember(String mId);
 
 }
