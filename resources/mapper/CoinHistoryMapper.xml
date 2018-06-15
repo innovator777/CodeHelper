@@ -5,13 +5,21 @@
   
 <mapper namespace="codehelper.web.servlet.store.mapper.CoinHistoryMapper">
 	<select id="retrieveByMember" parameterType="string" resultType="CoinHistory">
-		
 		Select cId AS id,
-			   cKind AS ,
-			   mId As member,
-			   qId
+			   cKind AS type,
+			   cAmount AS amount,
+			   cBalance AS balance,
+			   mId AS memberId,
+			   qId AS questionId
 		from coinhistory_tb
-		where mId = #{member}
-		
+		where mId = #{memberId}
 	</select>
+	
+	<insert id="insert" parameterType="CoinHistory">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			Select coinhistory_seq.nextval from dual
+		</selectKey>
+		Insert into coinhistory_tb(cId, cKind, cAmount, cBalance, mId, qId)
+		values(#{id}, #{type}, #{amount}, #{balance}, #{memberId}, #{questionId})
+	</insert>
 </mapper>

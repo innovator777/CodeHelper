@@ -2,14 +2,9 @@ package codehelper.web.servlet.domain;
 
 public class CoinHistory {
 	
-	public enum Type {
-		CHARGE,
-		EXCHANGE,
-	}
-	
 	private int id;
 	private String memberId;
-	private Type type;
+	private CoinHistoryType type;
 	private int questionId;
 	private int amount;
 	private int balance;
@@ -28,13 +23,13 @@ public class CoinHistory {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public Type getType() {
+	
+	public CoinHistoryType getType() {
 		return type;
 	}
-	public void setType(Type type) {
+	public void setType(CoinHistoryType type) {
 		this.type = type;
 	}
-	
 	public int getQuestionId() {
 		return questionId;
 	}

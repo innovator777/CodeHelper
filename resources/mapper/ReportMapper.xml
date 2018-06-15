@@ -6,30 +6,31 @@
 <mapper namespace="codehelper.web.servlet.store.mapper.ReportMapper">
 
 	<select id="retrieveAll" resultType="Report">
-		Select rId AS id,
-			   rContents AS contents,
-			   mId AS memberId,
-			   rAttacker AS attacker,
-			   rDate AS date,
-			   rCheck AS check,
-			   qId AS questionId,
-			   aId AS answerId
+		Select
+		rId AS id,
+		rContents AS contents,
+		mId AS memberId,
+		rAttacker AS attacker,
+		rDate AS createDate,
+		rCheck AS checked,
+		qId AS questionId,
+		aId AS answerId
 		from report_tb
 	</select>
-	
-	<insert id="create" parameterType="Report">
+
+	<insert id="insert" parameterType="Report">
 		<selectKey keyProperty="id" resultType="int" order="BEFORE">
-			Select report_seq.nextval from dual
+			Select
+			report_seq.nextval from dual
 		</selectKey>
-		
 		Insert into report_tb(rId, rContents, mId, rAttacker, rDate, rCheck, qId, aId)
-		values(#{id}, #{contents}, #{memberId}, #{attacker}, #{date}, #{check}, #{qId}, #{aId})
+		values(#{id}, #{contents}, #{memberId}, #{attacker}, #{createDate}, #{check}, #{questionId}, #{answerId})
 	</insert>
-	
+
 	<update id="update" parameterType="Report">
 		Update report_tb
-		set rCheck = #{check}
+		set rCheck = #{checked}
 		where rId = #{id}
 	</update>
-	
+
 </mapper>

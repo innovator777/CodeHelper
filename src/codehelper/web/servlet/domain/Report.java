@@ -1,77 +1,79 @@
 package codehelper.web.servlet.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Report {
-	
-	public enum Type {
-	}
-	
+
 	private int id;
 	private String memberId;
-	private Type contents;
-	private Date date;
+	private ReportType contents;
+	private Date createDate;
 	private int questionId;
 	private int answerId;
 	private String attacker;
-	private boolean check;
-	
+	private int checked;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getMemberId() {
 		return memberId;
 	}
-	
+
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 
 	}
-	public Type getContents() {
+	
+	public ReportType getContents() {
 		return contents;
 	}
-	public void setContents(Type contents) {
+
+	public void setContents(ReportType contents) {
 		this.contents = contents;
 	}
-	public Date getDate() {
-		return date;
+
+	public Date getCreateDate() {
+		return createDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
-	
+
 	public int getQuestionId() {
 		return questionId;
 	}
-	
+
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
 	}
-	
+
 	public int getAnswerId() {
 		return answerId;
 	}
-	
+
 	public void setAnswerId(int answerId) {
 		this.answerId = answerId;
 	}
-	
-	public boolean isCheck() {
-		return check;
+
+	public int getChecked() {
+		return checked;
 	}
-	
-	public void setCheck(boolean check) {
-		this.check = check;
+
+	public void setChecked(int checked) {
+		this.checked = checked;
 	}
-	
+
 	public String getAttacker() {
 		return attacker;
 	}
-	
+
 	public void setAttacker(String attacker) {
 		this.attacker = attacker;
 	}
