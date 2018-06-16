@@ -13,5 +13,6 @@ public interface QuestionService {
 	Question find(int id);
 	List<Question> findByMemeber(Member member);
 	List<Question> findAll();
+	boolean choose(int qid, int aid);
 	
 }

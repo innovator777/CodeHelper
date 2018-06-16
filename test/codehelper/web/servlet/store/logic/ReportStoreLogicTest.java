@@ -38,7 +38,7 @@ public class ReportStoreLogicTest {
 	@Test
 	public void testUpdate() {
 //		Report report = new Report();
-//		report.setId(10);
+//		report.setId(5);
 //		report.setChecked(1);
 //		store.update(report);
 	}
@@ -47,6 +47,11 @@ public class ReportStoreLogicTest {
 	public void testRetrieveAll() {
 //		List<Report> list = store.retrieveAll();
 //		assertEquals(1, list.get(0).getContents().getValue());
+	}
+	
+	@Test
+	public void testRetrieveById() {
+//		assertEquals("qwe@bu.ac.kr", store.retrieveById(5).getAttacker());
 	}
 
 }

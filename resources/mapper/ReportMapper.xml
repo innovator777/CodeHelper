@@ -17,6 +17,20 @@
 		aId AS answerId
 		from report_tb
 	</select>
+	
+	<select id="retrieveById" parameterType="int" resultType="Report">
+		Select
+		rId AS id,
+		rContents AS contents,
+		mId AS memberId,
+		rAttacker AS attacker,
+		rDate AS createDate,
+		rCheck AS checked,
+		qId AS questionId,
+		aId AS answerId
+		from report_tb
+		where rId = #{id}
+	</select>
 
 	<insert id="insert" parameterType="Report">
 		<selectKey keyProperty="id" resultType="int" order="BEFORE">
@@ -24,7 +38,7 @@
 			report_seq.nextval from dual
 		</selectKey>
 		Insert into report_tb(rId, rContents, mId, rAttacker, rDate, rCheck, qId, aId)
-		values(#{id}, #{contents}, #{memberId}, #{attacker}, #{createDate}, #{check}, #{questionId}, #{answerId})
+		values(#{id}, #{contents}, #{memberId}, #{attacker}, #{createDate}, #{checked}, #{questionId}, #{answerId})
 	</insert>
 
 	<update id="update" parameterType="Report">

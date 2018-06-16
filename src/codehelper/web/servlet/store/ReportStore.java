@@ -8,6 +8,7 @@ public interface ReportStore {
 	
 	int create(Report report);
 	void update(Report report);
+	Report retrieveById(int id);
 	List<Report> retrieveAll();
 
 }

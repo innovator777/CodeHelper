@@ -30,4 +30,9 @@ public class ReportServiceLogic implements ReportService{
 		return reportStore.retrieveAll();
 	}
 
+	@Override
+	public Report findById(int id) {
+		return reportStore.retrieveById(id);
+	}
+
 }

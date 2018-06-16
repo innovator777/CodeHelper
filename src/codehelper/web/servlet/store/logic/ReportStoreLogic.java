@@ -62,4 +62,20 @@ public class ReportStoreLogic implements ReportStore{
 		return result;
 	}
 
+	@Override
+	public Report retrieveById(int id) {
+		SqlSession session = factory.getSession();
+		Report result = null;
+		try {
+			ReportMapper mapper = session.getMapper(ReportMapper.class);
+			result = mapper.retrieveById(id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+
 }

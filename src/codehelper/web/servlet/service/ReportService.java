@@ -8,6 +8,7 @@ public interface ReportService {
 	
 	int addReport(Report report);
 	void modifyReport(Report report);
+	Report findById(int id);
 	List<Report> findAll();
 
 }

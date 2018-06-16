@@ -66,12 +66,6 @@ public class AnswerServiceLogic implements AnswerService{
 		answer.setIsChoose(qid);
 		answerStore.update(answer);
 		
-		Question question = questionStore.retrieve(qid);
-		if(question == null) {
-			return false;
-		}
-		question.setIsChoose(aid);
-		questionStore.update(question);
 		return true;
 	}
 

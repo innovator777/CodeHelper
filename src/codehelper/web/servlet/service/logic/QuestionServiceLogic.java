@@ -46,4 +46,15 @@ public class QuestionServiceLogic implements QuestionService{
 		return questionStore.retrieveAll();
 	}
 
+	@Override
+	public boolean choose(int qid, int aid) {
+		Question question = questionStore.retrieve(qid);
+		if(question == null) {
+			return false;
+		}
+		question.setIsChoose(aid);
+		questionStore.update(question);
+		return true;
+	}
+
 }
