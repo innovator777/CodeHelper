@@ -37,8 +37,8 @@ public class MemberServiceLogic implements MemberService{
 	}
 
 	@Override
-	public void removeMember(String id) {
-		memberStore.delete(id);
+	public int removeMember(String id) {
+		return memberStore.delete(id);
 		
 	}
 
