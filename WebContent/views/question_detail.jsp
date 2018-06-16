@@ -37,7 +37,9 @@ pageEncoding="UTF-8"%>
 			<tr>
 				<th>내용</th>
 				<td><textarea id="lectureIntroduce" name="lectureIntroduce"
-						class="form-control" rows="10" readonly>${lecture.introduce }</textarea></td>
+						class="form-control" rows="10" readonly>${lecture.introduce }</textarea>
+					<br><p align="right"><input class="btn" type="button" value="신고"></p>
+				</td>
 			</tr>
 		</table>
 		<b>조회수 : 5</b>
@@ -57,6 +59,7 @@ pageEncoding="UTF-8"%>
 				<td><textarea id="lectureIntroduce" name="lectureIntroduce"
 						class="form-control" rows="10" readonly>${lecture.introduce }</textarea>
 					<br><b>♡ : 3</b>
+						<input type="button" class="btn" value="신고">
 				</td>
 			</tr>
 			<tr>
