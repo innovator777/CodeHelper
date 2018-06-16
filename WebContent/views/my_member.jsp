@@ -37,7 +37,7 @@
 								<td>
 									<h4><B>${member.name } 회원님</B></h4><p><center>아이디 : ${member.id }<br><br>
 									<Button type="button" onclick="location.href='${ctx}/memberModify.do?memberId=${member.id }'" formtarget="_self">회원정보 변경</Button>&nbsp&nbsp
-									<Button type="button" onclick="location.href='#'" formtarget="_self">내 계좌</Button>&nbsp&nbsp
+									<Button type="button" onclick="location.href='${ctx}/bankList.do?memberId=${member.id }'" formtarget="_self">내 계좌</Button>&nbsp&nbsp
 									<Button type="button" onclick="location.href='${ctx}/memberRemove.do?memberId=${member.id }'" formtarget="_self">회원탈퇴</Button>
 									</center>
 								</td>

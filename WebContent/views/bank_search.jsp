@@ -22,7 +22,7 @@ pageEncoding="UTF-8"%>
 	</div>
 	<br><br>
 	<div align="left">
-		<input class="btn btn-success" type="button" value="등록">
+		<Button type="button" onclick="location.href='${ctx}/views/registerBank.jsp?memberId=${member.id }'" formtarget="_self">등록</Button>
 	</div><br>
 	<table class="table table-hover table-condensed">
 		<colgroup>
@@ -42,20 +42,24 @@ pageEncoding="UTF-8"%>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-            	<td>1</td>
-                <td>국민은행</td>
-                <td>01011111111</td>
-                <td>진권기</td>     
-                <td><input class="btn" type="submit" value="삭제"></td>       
-            </tr>
-            <tr>
-            	<td>2</td>
-                <td>기업은행</td>
-                <td>11298987789</td>
-                <td>진권기</td>
-                <td><input class="btn" type="submit" value="삭제"></td>            
-            </tr>
+			<c:choose>
+				<c:when test="${banks eq null || empty banks }">
+					<tr>
+						<td colspan="6" align="center">등록된 계좌가 없습니다.</td>
+					</tr>
+				</c:when>
+					<c:otherwise>
+						<c:forEach items="${banks }" var="banks" varStatus="sts">
+							<tr>
+				            	<td>${banks.id }</td>
+				                <td>${banks.name }</td>
+				                <td>${banks.accountNumber }</td>
+				                <td>${banks.accountHolder }</td>     
+				                <td><Button type="button" onclick="location.href='${ctx}/bankRemove.do?bankId=${banks.id }'" formtarget="_self">삭제</Button></td>       
+				            </tr>
+						</c:forEach>
+					</c:otherwise>
+	        </c:choose>
 		</tbody>
 	</table>
 </body>

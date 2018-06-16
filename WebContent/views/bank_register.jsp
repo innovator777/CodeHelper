@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
 	<br><br><br><br>
 	<div align="center">
 	<br>
-	<form action="#" method="post">
+	<form action="${ctx}/bankAdd.do" method="post">
 		<table border="0" width="250">
 			<colgroup>
 				<col width="30%">

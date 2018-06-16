@@ -18,40 +18,32 @@ public class QuestionServiceLogic implements QuestionService{
 	
 	@Override
 	public int addQuestion(Question question) {
-		// TODO Auto-generated method stub
-		return 0;
+		return questionStore.create(question);
 	}
 
 	@Override
 	public void modifyQuestion(Question question) {
-		// TODO Auto-generated method stub
-		
+		questionStore.update(question);
 	}
 
 	@Override
 	public void removeQuestion(int id) {
-		// TODO Auto-generated method stub
-		
+		questionStore.delete(id);
 	}
 
 	@Override
 	public Question find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return questionStore.retrieve(id);
 	}
 
 	@Override
 	public List<Question> findByMemeber(Member member) {
-		List<Question> result = null;
-		result = questionStore.retrieveByMember(member);
-		
-		return result;
+		return questionStore.retrieveByMember(member);
 	}
 
 	@Override
 	public List<Question> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return questionStore.retrieveAll();
 	}
 
 }
