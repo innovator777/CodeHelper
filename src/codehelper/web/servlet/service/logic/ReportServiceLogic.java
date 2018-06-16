@@ -17,20 +17,17 @@ public class ReportServiceLogic implements ReportService{
 	
 	@Override
 	public int addReport(Report report) {
-		// TODO Auto-generated method stub
-		return 0;
+		return reportStore.create(report);
 	}
 
 	@Override
 	public void modifyReport(Report report) {
-		// TODO Auto-generated method stub
-		
+		reportStore.update(report);
 	}
 
 	@Override
 	public List<Report> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return reportStore.retrieveAll();
 	}
 
 }
