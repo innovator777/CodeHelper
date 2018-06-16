@@ -97,4 +97,13 @@ public class AnswerServiceLogic implements AnswerService{
 		return answers;
 	}
 
+	@Override
+	public Answer findById(int aid) {
+		Answer answer = answerStore.retrieveById(aid);
+		if(answer == null) {
+			return null;
+		}
+		return answer;
+	}
+
 }

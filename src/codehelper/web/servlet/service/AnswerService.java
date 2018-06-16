@@ -10,6 +10,7 @@ public interface AnswerService {
 	int addAnswer(Answer answer);
 	void modifyAnswer(Answer answer);
 	int removeAnswer(int id);
+	Answer findById(int aid);
 	List<Answer> findByQuestion(int qid);
 	List<Answer> findByMember(String mid);
 	boolean choose(int qid, int aid);
