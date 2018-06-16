@@ -17,19 +17,23 @@ public class BankServiceLogic implements BankService{
 	
 	@Override
 	public int addBankInfo(Bank bank) {
-		return 0;
+		int result = 0;
+		result = bankStore.create(bank);
+		return result;
 	}
 
 	@Override
 	public int removeBankInfo(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		result = bankStore.delete(id);
+		return result;
 	}
 
 	@Override
 	public List<Bank> findByMember(String mId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Bank> result = null;
+		result=bankStore.retrieveByMember(mId);
+		return result;
 	}
 
 }
