@@ -6,7 +6,7 @@ public class Bank {
 	private String name;
 	private String accountNumber;
 	private String accountHolder;
-	private String mId;
+	private String memberId;
 	
 	public int getId() {
 		return id;
@@ -40,11 +40,11 @@ public class Bank {
 		this.accountHolder = accountHolder;
 	}
 
-	public String getmId() {
-		return mId;
+	public String getMemberId() {
+		return memberId;
 	}
 
-	public void setmId(String mId) {
-		this.mId = mId;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 }

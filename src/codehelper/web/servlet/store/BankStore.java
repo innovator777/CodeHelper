@@ -8,6 +8,6 @@ public interface BankStore {
 	
 	int create(Bank bank);
 	int delete(int id);
-	List<Bank> retrieveByMember(String mId);
+	List<Bank> retrieveByMember(String memberId);
 
 }

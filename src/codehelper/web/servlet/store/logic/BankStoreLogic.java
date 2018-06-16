@@ -54,14 +54,14 @@ public class BankStoreLogic implements BankStore{
 	}
 
 	@Override
-	public List<Bank> retrieveByMember(String mId) {
+	public List<Bank> retrieveByMember(String memberId) {
 		SqlSession session = factory.getSession();
 		
 		List<Bank> result = null;
 		
 		try {
 			BankMapper mapper = session.getMapper(BankMapper.class);
-			result = mapper.selectByMember(mId);
+			result = mapper.selectByMember(memberId);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -72,7 +72,5 @@ public class BankStoreLogic implements BankStore{
 		}
 		return result;
 	}
-
-
 
 }
