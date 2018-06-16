@@ -23,6 +23,7 @@
 	<br><br><br><br>
 	<div align="center">
 		<form action="#" method="post">
+			<input id="questionId" name="questionId" type="hidden" value="">
 			<input id="answerId" name="answerId" type="hidden" value="">
 			<table border="0">
 				<colgroup>
