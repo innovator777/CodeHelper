@@ -1,6 +1,7 @@
 package codehelper.web.servlet.store.logic;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -8,7 +9,6 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import codehelper.web.servlet.domain.Answer;
 import codehelper.web.servlet.store.AnswerStore;
 
 public class AnswerStoreLogicTest {
@@ -55,9 +55,15 @@ public class AnswerStoreLogicTest {
 //		assertEquals(1, answerStore.retrieveByQuestion(1).size());
 //	}
 	
-	@Test
-	public void testRetrieveByMember() {
-		assertEquals(1, answerStore.retrieveByMember("koys").size());
-	}
+//	@Test
+//	public void testRetrieveByMember() {
+//		assertEquals(1, answerStore.retrieveByMember("koys").size());
+//	}
+	
+//	@Test
+//	public void testRetrieveById() {
+//		assertNotNull(answerStore.retrieveById(1));
+//		assertEquals(1, answerStore.retrieveById(1).getLikeCount());
+//	}
 
 }

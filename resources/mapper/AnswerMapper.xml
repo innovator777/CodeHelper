@@ -25,6 +25,17 @@
 	where aId = #{id}
 	</update>
     
+    <select id="selectById" parameterType="int" resultType="Answer">
+    select aContents AS contents,
+    aLike AS likeCount,
+    aChoose AS isChoose,
+    aDate AS createdDate,
+    mId As memberId,
+    qId AS questionId
+    from answer_tb
+    where aId = #{answerId}
+    </select>
+    
     <select id="selectByQuestion" parameterType="int" resultType="Answer">
   	select aContents AS contents,
   	aLike AS likeCount,

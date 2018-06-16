@@ -76,6 +76,26 @@ public class AnswerStoreLogic implements AnswerStore{
 	}
 	
 	@Override
+	public Answer retrieveById(int answerId) {
+		SqlSession session = factory.getSession();
+		
+		Answer answer = new Answer();
+		
+		try {
+			AnswerMapper mapper = session.getMapper(AnswerMapper.class);
+			answer = mapper.selectById(answerId);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return answer;
+	}
+	
+	@Override
 	public List<Answer> retrieveByQuestion(int questionId) {
 		SqlSession session = factory.getSession();
 		
@@ -114,6 +134,5 @@ public class AnswerStoreLogic implements AnswerStore{
 		}
 		return result;
 	}
-
 
 }

@@ -9,6 +9,7 @@ public interface AnswerStore {
 	int create(Answer answer);
 	void update(Answer answer);
 	int delete(int id);
+	Answer retrieveById(int id);
 	List<Answer> retrieveByQuestion(int questionId);
 	List<Answer> retrieveByMember(String memberId);
 
