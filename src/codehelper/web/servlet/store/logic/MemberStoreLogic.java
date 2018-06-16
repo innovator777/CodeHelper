@@ -47,12 +47,13 @@ public class MemberStoreLogic implements MemberStore {
 	}
 
 	@Override
-	public void delete(String id) {
+	public int delete(String id) {
 		SqlSession session = factory.getSession();
+		int result = 0;
 		
 		try {
 			MemberMapper mapper = session.getMapper(MemberMapper.class);
-			mapper.delete(id);
+			result = mapper.delete(id);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -61,6 +62,7 @@ public class MemberStoreLogic implements MemberStore {
 			session.commit();
 			session.close();
 		}
+		return result;
 	}
 
 	@Override

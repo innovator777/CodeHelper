@@ -6,7 +6,7 @@ public interface MemberStore {
 	
 	String create(Member member);
 	void update(Member member);
-	void delete(String id);
+	int delete(String id);
 	Member retrieve(String id);
 	String retrieveWithPassword(Member member);
 
