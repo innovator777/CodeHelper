@@ -26,9 +26,9 @@ public class QuestionAddServlet extends HttpServlet {
 		question.setTitle(request.getParameter("qTitle"));
 		question.setContents(request.getParameter("qContents"));
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
-		question.setCreateDate(today);
+		question.setCreatedDate(today);
 		Member member = (Member)request.getSession().getAttribute("member");
-		question.setWriterId(member.getId());
+		question.setMemberId(member.getId());
 		
 		int result = questionService.addQuestion(question);
 		if (result == 1) {

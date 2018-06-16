@@ -37,7 +37,7 @@ public class QuestionModifyServlet extends HttpServlet {
 		question.setTitle(request.getParameter("qTitle"));
 		question.setContents(request.getParameter("qContents"));
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
-		question.setCreateDate(today);
+		question.setCreatedDate(today);
 		
 		questionService.modifyQuestion(question);
 		

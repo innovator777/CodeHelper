@@ -30,8 +30,8 @@ public class QuestionStoreLogicTest {
 //		question.setTitle("질문 타이틀");
 //		question.setContents("질문 내용");
 //		Date today = new Date(Calendar.getInstance().getTimeInMillis());
-//		question.setCreateDate(today);
-//		question.setWriterId("zxc@bu.ac.kr");
+//		question.setCreatedDate(today);
+//		question.setMemberId("aaa@bu.ac.kr");
 //		assertEquals(1, store.create(question));
 	}
 
@@ -42,15 +42,15 @@ public class QuestionStoreLogicTest {
 //		question.setTitle("질문 타이틀");
 //		question.setContents("질문 내용");
 //		Date today = new Date(Calendar.getInstance().getTimeInMillis());
-//		question.setCreateDate(today);
-//		question.setWriterId("zxc@bu.ac.kr");
+//		question.setCreatedDate(today);
+//		question.setMemberId("aaa@bu.ac.kr");
 //		question.setReadCount(2);
 //		store.update(question);	
 	}
 
 	@Test
 	public void testDelete() {
-//		assertEquals(1, store.delete(3));
+//		assertEquals(1, store.delete(2));
 	}
 
 	@Test
@@ -62,14 +62,14 @@ public class QuestionStoreLogicTest {
 	@Test
 	public void testRetrieveByMember() {
 //		Member member = new Member();
-//		member.setId("asd@bu.ac.kr");
+//		member.setId("aaa@bu.ac.kr");
 //		List<Question> list = store.retrieveByMember(member);
-//		assertEquals(2, list.get(0).getId());
+//		assertEquals(5, list.get(0).getId());
 	}
 
 	@Test
 	public void testRetrieveAll() {
 //		List<Question> list = store.retrieveAll();
-//		assertEquals(2, list.size());
+//		assertEquals(3, list.size());
 	}
 }

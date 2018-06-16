@@ -9,9 +9,9 @@ public class Question implements Serializable {
 	private int id;
 	private String title;
 	private String contents;
-	private Date createDate;
+	private Date createdDate;
 	private int readCount;
-	private String writerId;
+	private String memberId;
 	private int isChoose;
 	private List<Answer> answers;
 	
@@ -33,23 +33,23 @@ public class Question implements Serializable {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Date getCreateDate() {
-		return createDate;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	public int getReadCount() {
 		return readCount;
 	}
 	public void setReadCount(int readCount) {
 		this.readCount = readCount;
-	}
-	public String getWriterId() {
-		return writerId;
-	}
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
 	}
 	public int getIsChoose() {
 		return isChoose;
