@@ -19,7 +19,7 @@
 	<p align="center"><font color=black size=100px>Code Helper</font></p>
 	<br><br><br><br><br><br>
 	<div align="center">
-		<form action="#" method="get">
+		<form action="#" method="post">
 			<select name="report">
 				<option value="0" selected>선택하세요</option>
 				<option value="1">광고성 글입니다.</option>
