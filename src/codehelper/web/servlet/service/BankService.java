@@ -8,6 +8,6 @@ public interface BankService {
 
 	int addBankInfo(Bank bank);
 	int removeBankInfo(int id);
-	List<Bank> findByMember(String mId);
+	List<Bank> findByMember(String memberId);
 
 }

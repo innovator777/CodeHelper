@@ -30,9 +30,9 @@ public class BankServiceLogic implements BankService{
 	}
 
 	@Override
-	public List<Bank> findByMember(String mId) {
+	public List<Bank> findByMember(String memberId) {
 		List<Bank> result = null;
-		result=bankStore.retrieveByMember(mId);
+		result=bankStore.retrieveByMember(memberId);
 		return result;
 	}
 

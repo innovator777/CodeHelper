@@ -9,7 +9,7 @@
 	  	<selectKey keyProperty="id" resultType="int" order="BEFORE">
 	  		select bank_seq.nextval from dual
 	  	</selectKey>
-  	insert into bank_tb(bId, bName, bNum, bOwner, mId) values (#{id}, #{name}, #{accountNumber}, #{accountHolder}, #{mId})
+  	insert into bank_tb(bId, bName, bNum, bOwner, mId) values (#{id}, #{name}, #{accountNumber}, #{accountHolder}, #{memberId})
     </insert>
   
     <delete id="delete" parameterType="int">
@@ -22,7 +22,7 @@
   	bNum AS accountNumber,
   	bOwner AS accountHolder
 	from bank_tb
-	where mid = #{mId}
+	where mid = #{memberId}
 	</select>
 	
 </mapper>

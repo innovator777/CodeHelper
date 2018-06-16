@@ -32,7 +32,7 @@ public class BankAddServlet extends HttpServlet {
 		bank.setName(bankName);
 		bank.setAccountNumber(bankNum);
 		bank.setAccountHolder(name);
-		bank.setmId(member.getId());
+		bank.setMemberId(member.getId());
 		
 		BankService bankService = new BankServiceLogic();
 		

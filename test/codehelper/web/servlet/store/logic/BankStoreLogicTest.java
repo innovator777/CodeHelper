@@ -25,7 +25,7 @@ public class BankStoreLogicTest {
 //		bank.setName("국민은행");
 //		bank.setAccountNumber("111-1");
 //		bank.setAccountHolder("고용석");
-//		bank.setmId("koys");
+//		bank.setMemberId("koys");
 //		bankStore.create(bank);
 //	}
 
@@ -34,9 +34,9 @@ public class BankStoreLogicTest {
 //		assertEquals(1, bankStore.delete(1));
 //	}
 
-	@Test
-	public void testRetrieveByMember() {
-		assertEquals(1,bankStore.retrieveByMember("koys").size());
-	}
+//	@Test
+//	public void testRetrieveByMember() {
+//		assertEquals(1,bankStore.retrieveByMember("koys").size());
+//	}
 
 }
