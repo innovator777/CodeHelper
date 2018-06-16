@@ -43,6 +43,7 @@ pageEncoding="UTF-8"%>
 		<b>조회수 : 5</b>
 		<br><br>
 		<h4>답변 1개</h4>
+		<form action="#" method="post">
 		<table class="table">
 			<colgroup>
 				<col width="150">
@@ -52,22 +53,24 @@ pageEncoding="UTF-8"%>
 				<td colspan="2" align="right"><b>작성자 : 고용석 / 날짜 : 2017-05-09</b></td>
 			</tr>
 			<tr>
-				<th>내용</th>
+				<td></td>
 				<td><textarea id="lectureIntroduce" name="lectureIntroduce"
 						class="form-control" rows="10" readonly>${lecture.introduce }</textarea>
 					<br><b>♡ : 3</b>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><b>작성자 : 고용석 / 날짜 : 2017-05-09</b></td>
+				<td></td>
+				<td>
+					<textarea id="answerContents" name="answerContents" class="form-control" rows="10"></textarea>
+				</td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td><textarea id="lectureIntroduce" name="lectureIntroduce"
-						class="form-control" rows="10" readonly>${lecture.introduce }</textarea>
-					<br><b>♡ : 3</b>
+				<td colspan="2" align="right">
+					<input class="btn btn-success" type="submit" value="작성">
 				</td>
 			</tr>
 		</table>
+		</form>
 	</body>
 </html>
