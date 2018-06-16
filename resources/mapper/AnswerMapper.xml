@@ -35,4 +35,15 @@
   	where qId = #{questionId}
 	</select>
 	
+	<select id="selectByMember" parameterType="String" resultType="Answer">
+  	select aId AS id,
+  	aContents AS contents,
+  	aLike AS likeCount,
+  	aChoose AS isChoose,
+  	aDate AS createdDate,
+  	qId AS questionId
+  	from answer_tb
+  	where mId = #{memberId}
+	</select>
+	
 </mapper>

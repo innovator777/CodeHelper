@@ -20,18 +20,18 @@ public class AnswerStoreLogicTest {
 		answerStore = new AnswerStoreLogic();
 	}
 
-	@Test
-	public void testCreate() {
-		Answer answer = new Answer();
-		Date today = new Date(Calendar.getInstance().getTimeInMillis());
-		answer.setContents("adsf");
-		answer.setLikeCount(1);
-		answer.setIsChoose(1);
-		answer.setCreatedDate(today);
-		answer.setMemberId("koys");
-		answer.setQuestionId(1);
-		answerStore.create(answer);
-	}
+//	@Test
+//	public void testCreate() {
+//		Answer answer = new Answer();
+//		Date today = new Date(Calendar.getInstance().getTimeInMillis());
+//		answer.setContents("adsf");
+//		answer.setLikeCount(1);
+//		answer.setIsChoose(1);
+//		answer.setCreatedDate(today);
+//		answer.setMemberId("koys");
+//		answer.setQuestionId(1);
+//		answerStore.create(answer);
+//	}
 
 //	@Test
 //	public void testUpdate() {
@@ -50,9 +50,14 @@ public class AnswerStoreLogicTest {
 //		assertEquals(1, answerStore.delete(1));
 //	}
 //
+//	@Test
+//	public void testRetrieveByQuestion() {
+//		assertEquals(1, answerStore.retrieveByQuestion(1).size());
+//	}
+	
 	@Test
-	public void testRetrieveByQuestion() {
-		assertEquals(1, answerStore.retrieveByQuestion(1).size());
+	public void testRetrieveByMember() {
+		assertEquals(1, answerStore.retrieveByMember("koys").size());
 	}
 
 }

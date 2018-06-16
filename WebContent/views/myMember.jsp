@@ -35,10 +35,10 @@
 						<table class="table table-hover table-condensed">
 							<tr>
 								<td>
-									<h4><B>진강사 회원님</B></h4><p><center>아이디 : jin@gmail.com<br><br>
-									<Button type="button" onclick="location.href='#'" formtarget="_self">회원정보 변경</Button>&nbsp&nbsp
+									<h4><B>${member.name } 회원님</B></h4><p><center>아이디 : ${member.id }<br><br>
+									<Button type="button" onclick="location.href='${ctx}/memberModify.do?memberId=${member.id }'" formtarget="_self">회원정보 변경</Button>&nbsp&nbsp
 									<Button type="button" onclick="location.href='#'" formtarget="_self">내 계좌</Button>&nbsp&nbsp
-									<Button type="button" onclick="location.href='#'" formtarget="_self">회원탈퇴</Button>
+									<Button type="button" onclick="location.href='${ctx}/memberRemove.do?memberId=${member.id }'" formtarget="_self">회원탈퇴</Button>
 									</center>
 								</td>
 							</tr>
@@ -49,7 +49,7 @@
 						<table class="table table-hover table-condensed">
 							<tr>
 								<td>
-									<h4><B>캐쉬 관리</B></h4><p><center>보유액 : 1000캐쉬<br><br>
+									<h4><B>캐쉬 관리</B></h4><p><center>보유액 : ${member.balance }캐쉬<br><br>
 									<Button type="button" onclick="location.href='#'" formtarget="_self">충전</Button>&nbsp&nbsp
 									<Button type="button" onclick="location.href='#'" formtarget="_self">환전</Button>&nbsp&nbsp
 									<Button type="button" onclick="location.href='#'" formtarget="_self">조회</Button>
@@ -89,9 +89,9 @@
 						<tbody>
 							<tr>
 				            	<td>1</td>
-				                <td><a href="#">Java 소스코드 질문입니다.</a></td>
-				                <td>9</td>
-				                <td>완료</td>
+				                <td><a href="detail.jsp">asdf</a></td>
+				                <td>1</td>
+				                <td>OK</td>
 				            </tr>
 						</tbody>
 					</table>
@@ -108,17 +108,17 @@
 						<thead>
 							<tr>
 								<th>번호</th>
-								<th>답변 제목</th>
+								<th>질문번호</th>
 								<th>추천수</th>
 								<th>채택여부</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-				            	<td>1</td>
-				                <td><a href="#">C언어 소스코드 질문입니다.</a></td>
-				                <td>10</td>
-				                <td>채택</td>
+				            	<td>2</td>
+				                <td><a href="detail.jsp">2</a></td>
+				                <td>2</td>
+				                <td>OK</td>
 				            </tr>
 						</tbody>
 					</table>

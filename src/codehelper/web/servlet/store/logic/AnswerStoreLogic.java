@@ -95,5 +95,25 @@ public class AnswerStoreLogic implements AnswerStore{
 		return result;
 	}
 
+	@Override
+	public List<Answer> retrieveByMember(String memberId) {
+		SqlSession session = factory.getSession();
+		
+		List<Answer> result = null;
+		
+		try {
+			AnswerMapper mapper = session.getMapper(AnswerMapper.class);
+			result = mapper.selectByMember(memberId);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+
 
 }

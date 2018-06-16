@@ -10,5 +10,6 @@ public interface AnswerStore {
 	void update(Answer answer);
 	int delete(int id);
 	List<Answer> retrieveByQuestion(int questionId);
+	List<Answer> retrieveByMember(String memberId);
 
 }

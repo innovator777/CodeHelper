@@ -1,6 +1,7 @@
 package codehelper.web.servlet.controller.member;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import codehelper.web.servlet.domain.Member;
-import codehelper.web.servlet.store.MemberStore;
-import codehelper.web.servlet.store.logic.MemberStoreLogic;
+import codehelper.web.servlet.service.MemberService;
+import codehelper.web.servlet.service.logic.MemberServiceLogic;
 
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
@@ -20,17 +21,20 @@ public class LoginServlet extends HttpServlet {
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
 
-		MemberStore memberStore = new MemberStoreLogic();
+		MemberService memberService = new MemberServiceLogic();
 		
-		Member member = memberStore.retrieve("loginId");
-		
-		if(loginId.equals(member.getId())&&password.equals(member.getPassword()))
-		{
+		Member member = memberService.login(loginId, password);
+		if(loginId.equals(member.getId())&&password.equals(member.getPassword())) {
+			
 			HttpSession session = request.getSession();
-			session.setAttribute("memberId", loginId);
-			session.setAttribute("memberName", member.getName());
+			session.setAttribute("member", member);
 			response.sendRedirect(request.getContextPath());
 		}
+		else {
+			response.sendRedirect(request.getContextPath());
+		}
+		
+		
 	}
 
 }

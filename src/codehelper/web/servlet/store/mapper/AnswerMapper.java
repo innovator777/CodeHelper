@@ -10,4 +10,5 @@ public interface AnswerMapper {
 	void update(Answer answer);
 	int delete(int id);
 	List<Answer> selectByQuestion(int questionId);
+	List<Answer> selectByMember(String memberId);
 }

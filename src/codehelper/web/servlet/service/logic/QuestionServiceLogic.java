@@ -42,8 +42,10 @@ public class QuestionServiceLogic implements QuestionService{
 
 	@Override
 	public List<Question> findByMemeber(Member member) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Question> result = null;
+		result = questionStore.retrieveByMember(member);
+		
+		return result;
 	}
 
 	@Override

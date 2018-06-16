@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import codehelper.web.servlet.domain.Answer;
+import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.service.AnswerService;
 import codehelper.web.servlet.store.AnswerStore;
 import codehelper.web.servlet.store.logic.AnswerStoreLogic;
@@ -65,6 +66,14 @@ public class AnswerServiceLogic implements AnswerService{
 		
 		Answer answer = new Answer();
 		answer.setId(id);		
+		return result;
+	}
+
+	@Override
+	public List<Answer> findByMember(String mid) {
+		
+		List<Answer> result = null;
+		result = answerStore.retrieveByMember(mid);
 		return result;
 	}
 

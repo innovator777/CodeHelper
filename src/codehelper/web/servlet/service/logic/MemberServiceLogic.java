@@ -20,26 +20,33 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public Member login(String id, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		Member member = new Member();
+		member.setId(id);
+		member.setPassword(password);
+		String loginId = memberStore.retrieveWithPassword(member);
+		member = memberStore.retrieve(loginId);
+		
+		return member;
+		
 	}
 
 	@Override
 	public void modifyMember(Member member) {
-		// TODO Auto-generated method stub
+		memberStore.update(member);
 		
 	}
 
 	@Override
 	public void removeMember(String id) {
-		// TODO Auto-generated method stub
+		memberStore.delete(id);
 		
 	}
 
 	@Override
 	public Member findMemeber(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Member member = new Member();
+		member=memberStore.retrieve(id);
+		return member;
 	}
 	
 }

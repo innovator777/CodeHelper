@@ -42,6 +42,6 @@ pageEncoding="UTF-8"%>
 	</form>
 	<br>
 	</div>
-	<div align="center"><a href="${ctx}/register.jsp">회원가입</a></div>
+	<div align="center"><a href="${ctx}/views/register.jsp">회원가입</a></div>
 </body>
 </html>
