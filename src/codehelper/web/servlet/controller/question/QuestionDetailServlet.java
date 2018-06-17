@@ -24,14 +24,19 @@ public class QuestionDetailServlet extends HttpServlet {
 		QuestionService questionService = new QuestionServiceLogic();
 		AnswerService answerService = new AnswerServiceLogic();
 		
-		int questionId = (int)request.getAttribute("questionId");
+		int questionId = Integer.parseInt(request.getParameter("questionId"));
 		Question question = questionService.find(questionId);
 		
 		List<Answer> answers =  answerService.findByQuestion(questionId);
 		question.setAnswers(answers);
 		
 		request.setAttribute("question", question);
-		request.getRequestDispatcher("question_detail.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/question_detail.jsp").forward(request, response);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doGet(request, response);
 	}
 
 }

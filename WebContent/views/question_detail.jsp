@@ -48,7 +48,7 @@ pageEncoding="UTF-8"%>
 									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
 								</c:when>
 								
-								<c:when test="${loginId == isAdmin }"> <!-- 관리자일 때 확인하기 -->
+								<c:when test="${isAdmin }"> <!-- 관리자일 때 확인하기 -->
 									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
 								</c:when>
 								
@@ -89,11 +89,11 @@ pageEncoding="UTF-8"%>
 									<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
 								</c:when>
 								
-								<c:when test="${isLogged }"> <!-- 조건문 : 답변작성자일 때로 수정해야함!! -->
+								<c:when test="${loginId == answer.memberId }"> <!-- 조건문 : 답변작성자일 때로 수정해야함!! -->
 									<Button class="btn" name="modifyAnswer" type="button" onclick="location.href='${ctx}/answerModify.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">수정</Button>
 								</c:when>
 								
-								<c:when test="${loginId == isAdmin }">
+								<c:when test="${isAdmin }">
 									<Button class="btn" name="deleteAnswer" type="button" onclick="location.href='${ctx}/answerRemove.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">삭제</Button>
 								</c:when>
 								

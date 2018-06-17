@@ -32,6 +32,7 @@ public class AnswerAddServlet extends HttpServlet {
 		answer.setContents(contents);
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 		answer.setCreatedDate(today);
+		answer.setQuestionId(Integer.parseInt(questionId));
 		
 		String loginId = (String)request.getSession().getAttribute("loginId");
 		Member member = memberService.findMemeber(loginId);
@@ -40,7 +41,7 @@ public class AnswerAddServlet extends HttpServlet {
 		answerService.addAnswer(answer);
 		
 		request.setAttribute("questionId", questionId);
-		request.getRequestDispatcher("questionDetail.do").forward(request, response);
+		request.getRequestDispatcher("/questionDetail.do").forward(request, response);
 	}
 
 }

@@ -76,7 +76,7 @@ pageEncoding="UTF-8"%>
 			                <td>${fn:length(question.answers) }</td>
 			                <td>
 			                	<c:choose>
-			                		<c:when test="${question.isChoose eq null }">X</c:when>
+			                		<c:when test="${question.isChoose eq 0 }">X</c:when>
 			                		<c:otherwise>O</c:otherwise>
 			                	</c:choose>
 			                </td>
