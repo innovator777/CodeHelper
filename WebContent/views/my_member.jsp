@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
@@ -94,14 +95,14 @@
 									</tr>
 								</c:when>
 								<c:otherwise>
-									<c:forEach items="${questions }" var="questions" varStatus="sts">
+									<c:forEach items="${questions }" var="question" varStatus="sts">
 										   <tr>
-								               <td>${questions.id }</td>
-								               <td><a href="questionCount.do?questionId=${questions.id }">${questions.title }</a></td>
-								               <td>${qCounts}</td>
+								               <td>${sts.count }</td>
+								               <td><a href="questionCount.do?questionId=${question.id }">${question.title }</a></td>
+								               <td>${fn:length(question.answers) }</td>
 								               <td>
 									               <c:choose>
-									               	<c:when test="${questions.isChoose eq 0 }">X</c:when>
+									               	<c:when test="${question.isChoose eq 0 }">X</c:when>
 									               	<c:otherwise>O</c:otherwise>
 									               </c:choose>
 								               </td>      
@@ -137,14 +138,14 @@
 									</tr>
 								</c:when>
 								<c:otherwise>
-									<c:forEach items="${answers }" var="answers" varStatus="sts">
+									<c:forEach items="${answers }" var="answer" varStatus="sts">
 										   <tr>
-								               <td>${answers.id }</td>
-								               <td><a href="questionCount.do?questionId=${answers.questionId }">${qTitles }</a></td>
-								               <td>${answers.likeCount }</td>
+								               <td>${sts.count }</td>
+								               <td><a href="questionCount.do?questionId=${answer.questionId }">${questionTitles[sts.index] }</a></td>
+								               <td>${answer.likeCount }</td>
 								               <td>
 									               <c:choose>
-											           <c:when test="${answers.isChoose eq 0 }">X</c:when>
+											           <c:when test="${answer.isChoose eq 0 }">X</c:when>
 											           <c:otherwise>O</c:otherwise>
 										           </c:choose>
 								               </td> 

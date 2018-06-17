@@ -25,33 +25,32 @@ public class MemberListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		QuestionService questionService = new QuestionServiceLogic();
 		MemberService memberService = new MemberServiceLogic();
+		AnswerService answerService = new AnswerServiceLogic();
 		
 		String id =(String)request.getSession().getAttribute("loginId");
 		Member member = memberService.findMember(id);
 
-		List<Question> questions = null;
-		QuestionService questionService = new QuestionServiceLogic();
-		questions = questionService.findByMemeber(member);
 		
-		List<Answer> answers = null;
-		AnswerService answerService = new AnswerServiceLogic();
-		answers = answerService.findByMember(id);
-		ArrayList<String> qCounts = new ArrayList<String>();
-		for(int i=0;i<questions.size();i++) {
-			int qCount=answerService.findByQuestion(questions.get(i).getId()).size();
-			qCounts.add(String.valueOf(qCount));
+		List<Question> questions = questionService.findByMemeber(member);
+		for (Question question : questions) {
+			List<Answer> answers = answerService.findByQuestion(question.getId());
+			question.setAnswers(answers);
 		}
 		
-		ArrayList<String> qTitles = new ArrayList<String>();
-		for(int i=0;i<questions.size();i++) {
-			String qTitle=questionService.find(answers.get(i).getQuestionId()).getTitle();
-			qTitles.add(qTitle);
+		List<Answer> answers = answerService.findByMember(id);
+		List<String> questionTitles = null;
+		
+		if(answers != null && !answers.isEmpty()) {
+			questionTitles = new ArrayList<>();
+			for(Answer answer : answers) {
+				Question question = questionService.find(answer.getQuestionId());
+				questionTitles.add(question.getTitle());
+			}
+			request.setAttribute("questionTitles", questionTitles);
 		}
 		
-		request.setAttribute("qTitles", qTitles);
-		request.setAttribute("qCounts", qCounts);
 		request.setAttribute("questions", questions);
 		request.setAttribute("answers", answers);
 		request.setAttribute("name", member.getName());
