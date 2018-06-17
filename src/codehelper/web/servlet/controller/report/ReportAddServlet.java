@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.domain.Report;
 import codehelper.web.servlet.domain.ReportType;
+import codehelper.web.servlet.service.MemberService;
 import codehelper.web.servlet.service.ReportService;
+import codehelper.web.servlet.service.logic.MemberServiceLogic;
 import codehelper.web.servlet.service.logic.ReportServiceLogic;
 
 @WebServlet("/reportAdd.do")
@@ -22,16 +24,24 @@ public class ReportAddServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReportService reportService = new ReportServiceLogic();
+		MemberService memberService = new MemberServiceLogic();
 		
 		String questionId = request.getParameter("questionId");
 		String answerId = request.getParameter("answerId");
 		String attacker = request.getParameter("attacker");
 		String contents = request.getParameter("contents");
 		
+		
 		Report report = new Report();
-		report.setAnswerId(Integer.valueOf(answerId));
-		report.setQuestionId(Integer.valueOf(questionId));
-		report.setAttacker(attacker);
+		if(!questionId.isEmpty() && !answerId.isEmpty()) {
+			report.setQuestionId(Integer.valueOf(questionId));
+			report.setAnswerId(Integer.valueOf(answerId));
+		}
+		else if(!questionId.isEmpty() && answerId.isEmpty()) {
+			report.setQuestionId(Integer.valueOf(questionId));
+		}
+		Member attackerMember = memberService.findMemeber(attacker);
+		report.setAttacker(attackerMember.getName());
 		report.setContents(ReportType.valueOf(Integer.valueOf(contents)));
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 		report.setCreateDate(today);
@@ -40,7 +50,7 @@ public class ReportAddServlet extends HttpServlet {
 		reportService.addReport(report);
 		
 		request.setAttribute("questionId", Integer.valueOf(questionId));
-		request.getRequestDispatcher("question_detail.jsp").forward(request, response);
+		request.getRequestDispatcher("questionDetail.do").forward(request, response);
 	}
 
 }
