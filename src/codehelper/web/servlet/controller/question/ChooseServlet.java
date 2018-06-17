@@ -27,7 +27,7 @@ public class ChooseServlet extends HttpServlet {
 		answerService.choose(Integer.valueOf(questionId), Integer.valueOf(answerId));
 		
 		request.setAttribute("questionId", questionId);
-		request.getRequestDispatcher("question_detail.jsp").forward(request, response);
+		request.getRequestDispatcher("questionDetail.do").forward(request, response);
 	}
 
 }
