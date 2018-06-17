@@ -35,7 +35,7 @@ public class AnswerAddServlet extends HttpServlet {
 		answerService.addAnswer(answer);
 		
 		request.setAttribute("questionId", questionId);
-		request.getRequestDispatcher("question_detail.jsp").forward(request, response);
+		request.getRequestDispatcher("questionDetail.do").forward(request, response);
 	}
 
 }

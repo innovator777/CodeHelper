@@ -26,7 +26,7 @@ public class AnswerModifyServlet extends HttpServlet {
 		
 		request.setAttribute("answer", answer);
 		request.setAttribute("questionId", questionId);
-		request.getRequestDispatcher("question_detail.jsp").forward(request, response);
+		request.getRequestDispatcher("answer_modify.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +43,7 @@ public class AnswerModifyServlet extends HttpServlet {
 		answerService.modifyAnswer(answer);
 		
 		request.setAttribute("questionId", Integer.valueOf(questionId));
-		request.getRequestDispatcher("question_datail.jsp").forward(request, response);
+		request.getRequestDispatcher("questionDetail.do").forward(request, response);
 		
 	}
 

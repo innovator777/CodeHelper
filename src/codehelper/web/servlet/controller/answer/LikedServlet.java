@@ -23,7 +23,7 @@ public class LikedServlet extends HttpServlet {
 		answerService.liked(Integer.valueOf(answerId));
 		
 		request.setAttribute("questionId", questionId);
-		request.getRequestDispatcher("quetion_detail.jsp").forward(request, response);
+		request.getRequestDispatcher("questionDetail.do").forward(request, response);
 	}
 
 }
