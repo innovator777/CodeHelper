@@ -19,7 +19,7 @@ public class ReportModifyServlet extends HttpServlet {
 		ReportService reportService = new ReportServiceLogic();
 		
 		String reportId = request.getParameter("reportId");
-		Report report = reportService.findById(Integer.valueOf(reportId));
+		Report report = reportService.findById(Integer.parseInt(reportId));
 		report.setChecked(1);
 		reportService.modifyReport(report);
 		

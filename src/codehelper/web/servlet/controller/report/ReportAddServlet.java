@@ -34,15 +34,15 @@ public class ReportAddServlet extends HttpServlet {
 		
 		Report report = new Report();
 		if(!questionId.isEmpty() && !answerId.isEmpty()) {
-			report.setQuestionId(Integer.valueOf(questionId));
-			report.setAnswerId(Integer.valueOf(answerId));
+			report.setQuestionId(Integer.parseInt(questionId));
+			report.setAnswerId(Integer.parseInt(answerId));
 		}
 		else if(!questionId.isEmpty() && answerId.isEmpty()) {
-			report.setQuestionId(Integer.valueOf(questionId));
+			report.setQuestionId(Integer.parseInt(questionId));
 		}
 		Member attackerMember = memberService.findMemeber(attacker);
 		report.setAttacker(attackerMember.getName());
-		report.setContents(ReportType.valueOf(Integer.valueOf(contents)));
+		report.setContents(ReportType.valueOf(Integer.parseInt(contents)));
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 		report.setCreateDate(today);
 		
@@ -51,7 +51,7 @@ public class ReportAddServlet extends HttpServlet {
 		report.setMemberId(member.getId());
 		reportService.addReport(report);
 		
-		request.setAttribute("questionId", Integer.valueOf(questionId));
+		request.setAttribute("questionId", Integer.parseInt(questionId));
 		request.getRequestDispatcher("questionDetail.do").forward(request, response);
 	}
 

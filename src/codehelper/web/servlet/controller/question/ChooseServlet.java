@@ -23,8 +23,8 @@ public class ChooseServlet extends HttpServlet {
 		String questionId = request.getParameter("questionId");
 		String answerId = request.getParameter("answerId");
 		
-		questionService.choose(Integer.valueOf(questionId), Integer.valueOf(answerId));
-		answerService.choose(Integer.valueOf(questionId), Integer.valueOf(answerId));
+		questionService.choose(Integer.parseInt(questionId), Integer.parseInt(answerId));
+		answerService.choose(Integer.parseInt(questionId), Integer.parseInt(answerId));
 		
 		request.setAttribute("questionId", questionId);
 		request.getRequestDispatcher("questionDetail.do").forward(request, response);

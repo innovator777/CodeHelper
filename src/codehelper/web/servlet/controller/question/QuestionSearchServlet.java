@@ -26,7 +26,7 @@ public class QuestionSearchServlet extends HttpServlet {
 		List<Question> questionList = null;
 		
 		if(!searchType.isEmpty() && !searchEdit.isEmpty()) {
-			int value = Integer.valueOf(searchType);
+			int value = Integer.parseInt(searchType);
 			if(value == 1) {
 				questionList = questionService.findByTitle(searchEdit);
 			}

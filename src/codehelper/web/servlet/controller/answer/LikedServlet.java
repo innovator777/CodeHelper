@@ -20,7 +20,7 @@ public class LikedServlet extends HttpServlet {
 		String answerId = request.getParameter("answerId");
 		String questionId = request.getParameter("questionId");
 		
-		answerService.liked(Integer.valueOf(answerId));
+		answerService.liked(Integer.parseInt(answerId));
 		
 		request.setAttribute("questionId", questionId);
 		request.getRequestDispatcher("questionDetail.do").forward(request, response);

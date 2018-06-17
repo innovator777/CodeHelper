@@ -27,7 +27,7 @@ public class QuestionModifyServlet extends HttpServlet {
 		QuestionService questionService = new QuestionServiceLogic();
 		
 		String questionId = request.getParameter("questionId");
-		Question question = questionService.find(Integer.valueOf(questionId));
+		Question question = questionService.find(Integer.parseInt(questionId));
 		request.setAttribute("question", question);
 		
 		request.getRequestDispatcher("question_modify.jsp").forward(request, response);
@@ -37,7 +37,7 @@ public class QuestionModifyServlet extends HttpServlet {
 		QuestionService questionService = new QuestionServiceLogic();
 		
 		String questionId = request.getParameter("questionId");
-		Question question = questionService.find(Integer.valueOf(questionId));
+		Question question = questionService.find(Integer.parseInt(questionId));
 		
 		question.setTitle(request.getParameter("qTitle"));
 		question.setContents(request.getParameter("qContents"));

@@ -23,7 +23,7 @@ public class QuestionCountServlet extends HttpServlet {
 		
 		String questionId = request.getParameter("questionId");
 		
-		Question question = questionService.find(Integer.valueOf(questionId));
+		Question question = questionService.find(Integer.parseInt(questionId));
 		question.setReadCount(question.getReadCount() + 1);
 		questionService.modifyQuestion(question);
 		

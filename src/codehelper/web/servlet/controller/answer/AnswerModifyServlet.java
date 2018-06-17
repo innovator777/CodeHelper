@@ -22,7 +22,7 @@ public class AnswerModifyServlet extends HttpServlet {
 		AnswerService answerService = new AnswerServiceLogic();
 		String answerId = request.getParameter("answerId");
 		String questionId = request.getParameter("questionId");
-		Answer answer = answerService.findById(Integer.valueOf(answerId));
+		Answer answer = answerService.findById(Integer.parseInt(answerId));
 		
 		request.setAttribute("answer", answer);
 		request.setAttribute("questionId", questionId);
@@ -36,13 +36,13 @@ public class AnswerModifyServlet extends HttpServlet {
 		String contents = request.getParameter("contents");
 		String questionId = request.getParameter("questionId");
 		
-		Answer answer = answerService.findById(Integer.valueOf(answerId));
+		Answer answer = answerService.findById(Integer.parseInt(answerId));
 		answer.setContents(contents);
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 		answer.setCreatedDate(today);
 		answerService.modifyAnswer(answer);
 		
-		request.setAttribute("questionId", Integer.valueOf(questionId));
+		request.setAttribute("questionId", Integer.parseInt(questionId));
 		request.getRequestDispatcher("questionDetail.do").forward(request, response);
 		
 	}

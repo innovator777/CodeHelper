@@ -20,7 +20,7 @@ public class AnswerRemoveServlet extends HttpServlet {
 		String answerId = request.getParameter("answerId");
 		String questionId = request.getParameter("questionId");
 		
-		answerService.removeAnswer(Integer.valueOf(answerId));
+		answerService.removeAnswer(Integer.parseInt(answerId));
 		
 		request.setAttribute("questionId", questionId);
 		request.getRequestDispatcher("questionDetail.do").forward(request, response);
