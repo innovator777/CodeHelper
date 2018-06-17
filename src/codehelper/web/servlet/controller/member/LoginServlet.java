@@ -22,17 +22,25 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		MemberService memberService = new MemberServiceLogic();
+		HttpSession session = request.getSession();
 		
-		Member member = memberService.login(loginId, password);
-		if(loginId.equals(member.getId())&&password.equals(member.getPassword())) {
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("member", member);
-			response.sendRedirect(request.getContextPath());
+		if(loginId.equals("admin") && password.equals("admin")) {
+			session.setAttribute("name", "°ü¸®ÀÚ");
+			session.setAttribute("isAdmin", true);
+			session.setAttribute("loginId", loginId);
+			session.setAttribute("isLogged", true);
 		}
 		else {
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			Member member = memberService.login(loginId, password);
+			if(loginId.equals(member.getId())&&password.equals(member.getPassword())) {
+				session.setAttribute("name", member.getName());
+				session.setAttribute("isAdmin", false);
+				session.setAttribute("loginId", loginId);
+				session.setAttribute("isLogged", true);
+			}
 		}
+		
+		response.sendRedirect(request.getContextPath());
 		
 	}
 

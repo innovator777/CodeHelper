@@ -7,8 +7,8 @@ pageEncoding="UTF-8"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>로그인</title>
-	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
-	<link href="resources/css/style.css" rel="stylesheet">
+	<link href="${ctx }/resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${ctx }/resources/css/style.css" rel="stylesheet">
 	<style type="text/css">
 			body{
 				margin: 30px 250px 30px 250px;
@@ -42,6 +42,6 @@ pageEncoding="UTF-8"%>
 	</form>
 	<br>
 	</div>
-	<div align="center"><a href="${ctx}/views/register.jsp">회원가입</a></div>
+	<div align="center"><a href="${ctx}/views/member_register.jsp">회원가입</a></div>
 </body>
 </html>
