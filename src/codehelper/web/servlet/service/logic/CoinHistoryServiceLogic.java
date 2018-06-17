@@ -46,5 +46,10 @@ public class CoinHistoryServiceLogic implements CoinHistoryService{
 	public List<CoinHistory> findByMember(String id) {
 		return coinHistoryStore.retrieveByMember(id);
 	}
+
+	@Override
+	public int addCoinHistory(CoinHistory coinHistory) {
+		return coinHistoryStore.create(coinHistory);
+	}
 	
 }

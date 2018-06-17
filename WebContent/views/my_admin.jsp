@@ -116,7 +116,7 @@
 								               </td> 
 								               <td>
 								               		<c:if test="${report.checked eq 0 }">
-								               			<Button class="btn" name="check" type="button" onclick="location.href='#'" formtarget="_self">확인</Button>
+								               			<Button class="btn" name="check" type="button" onclick="location.href='${ctx}/reportModify.do?reportId=${report.id }'" formtarget="_self">확인</Button>
 								               		</c:if>
 								               </td>
 								           </tr>

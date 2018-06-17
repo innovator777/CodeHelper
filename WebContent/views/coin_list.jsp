@@ -35,7 +35,7 @@ pageEncoding="UTF-8"%>
 					<th>분류</th>
 					<th>금액</th>
 					<th>보유액</th>
-					<th>질문번호</th>
+					<th>질문 제목</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,17 +46,17 @@ pageEncoding="UTF-8"%>
 					</tr>
 				</c:when>
 					<c:otherwise>
-						<c:forEach items="${coins }" var="coins" varStatus="sts">
+						<c:forEach items="${coins }" var="coin" varStatus="sts">
 							<tr>
-				            	<td>${coins.type }</td>
-				                <td>${coins.amount }</td>
-				                <td>${coins.balance }</td>
+				            	<td>${coin.type }</td>
+				                <td>${coin.amount }</td>
+				                <td>${coin.balance }</td>
 				                <c:choose>
-									<c:when test="${coins.questionId eq 0}">
-				                		<td><div align="center">-</div></td>   
+									<c:when test="${coin.questionId eq 0}">
+				                		<td>-</td>   
 				                	</c:when>
 				                	<c:otherwise>
-				                		<td>${coins.questionId }</td>
+				                		<td>${questionTitles[sts.index] }</td>
 				                	</c:otherwise>
 				                </c:choose>
 				            </tr>

@@ -23,7 +23,7 @@ public class ReportModifyServlet extends HttpServlet {
 		report.setChecked(1);
 		reportService.modifyReport(report);
 		
-		response.sendRedirect("views/my_admin.jsp");
+		response.sendRedirect("adminList.do");
 	}
 
 }
