@@ -37,8 +37,27 @@ pageEncoding="UTF-8"%>
 			<tr>
 				<th>내용</th>
 				<td><textarea id="lectureIntroduce" name="lectureIntroduce"
-						class="form-control" rows="10" readonly>${lecture.introduce }</textarea>
-					<br><p align="right"><input class="btn" type="button" value="신고"></p>
+						class="form-control" rows="10" readonly>${lecture.introduce }</textarea><br>
+					<p align="right">
+						<c:if test="${isLogged }">
+							<c:choose>
+							
+								<c:when test="${loginId == question.memberId }">
+									<Button class="btn" name="modifyQuestion" type="button" onclick="location.href='#'" formtarget="_self">수정</Button>
+									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='#'" formtarget="_self">삭제</Button>
+								</c:when>
+								
+								<c:when test="${loginId == isAdmin }"> <!-- 관리자일 때 확인하기 -->
+									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='#'" formtarget="_self">삭제</Button>
+								</c:when>
+								
+								<c:otherwise>
+									<Button class="btn" name="reportQuestion" type="button" onclick="location.href='#'" formtarget="_self">신고</Button>
+								</c:otherwise>
+											
+							</c:choose>
+						</c:if>
+					</p>
 				</td>
 			</tr>
 		</table>
@@ -57,9 +76,29 @@ pageEncoding="UTF-8"%>
 			<tr>
 				<td></td>
 				<td><textarea id="lectureIntroduce" name="lectureIntroduce"
-						class="form-control" rows="10" readonly>${lecture.introduce }</textarea>
-					<br><b>♡ : 3</b>
-						<input type="button" class="btn" value="신고">
+						class="form-control" rows="10" readonly>${lecture.introduce }</textarea><br>
+					<p align="right">
+						<c:if test="${isLogged }">
+							<c:choose>
+								<c:when test="${loginId == question.memberId }">
+									<Button class="btn" name="choose" type="button" onclick="location.href='#'" formtarget="_self">채택</Button>
+									<Button class="btn" name="reportAnswer" type="button" onclick="location.href='#'" formtarget="_self">신고</Button>
+								</c:when>
+								
+								<c:when test="${isLogged }"> <!-- 조건문 : 답변작성자일 때로 수정해야함!! -->
+									<Button class="btn" name="modifyAnswer" type="button" onclick="location.href='#'" formtarget="_self">수정</Button>
+								</c:when>
+								
+								<c:when test="${loginId == isAdmin }">
+									<Button class="btn" name="deleteAnswer" type="button" onclick="location.href='#'" formtarget="_self">삭제</Button>
+								</c:when>
+								
+								<c:otherwise>
+									<Button class="btn" name="reportAnswer" type="button" onclick="location.href='#'" formtarget="_self">신고</Button>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+					</p>
 				</td>
 			</tr>
 			<tr>
