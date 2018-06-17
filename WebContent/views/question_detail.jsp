@@ -40,23 +40,29 @@ pageEncoding="UTF-8"%>
 				<td><textarea id="questionContents" name="questionContents"
 						class="form-control" rows="10" readonly>${question.contents }</textarea><br>
 					<p align="right">
-						<c:if test="${isLogged }">
-							<c:choose>
+						<c:choose>
+							<c:when test="${isLogged && question.isChoose eq 0 }">
+								<c:choose>
+								
+									<c:when test="${loginId == question.memberId }">
+										<Button class="btn" name="modifyQuestion" type="button" onclick="location.href='${ctx}/questionModify.do?questionId=${question.id }'" formtarget="_self">수정</Button>
+										<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
+									</c:when>
+									
+									<c:when test="${isAdmin eq false }">
+										<Button class="btn" name="reportQuestion" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
+									</c:when>
+												
+								</c:choose>
+							</c:when>
 							
-								<c:when test="${loginId == question.memberId }">
-									<Button class="btn" name="modifyQuestion" type="button" onclick="location.href='${ctx}/questionModify.do?questionId=${question.id }'" formtarget="_self">수정</Button>
-									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
-								</c:when>
-								
-								<c:when test="${isAdmin }"> <!-- 관리자일 때 확인하기 -->
-									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
-								</c:when>
-								
-								<c:otherwise>
-									<Button class="btn" name="reportQuestion" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
-								</c:otherwise>
-											
-							</c:choose>
+							<c:when test="${isLogged && question.isChoose ne 0 }">
+								<B>채택완료</B>
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+						<c:if test="${isLogged && isAdmin }">
+							<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
 						</c:if>
 					</p>
 				</td>
@@ -81,32 +87,41 @@ pageEncoding="UTF-8"%>
 				<td><textarea id="answerContents" name="answerContents"
 						class="form-control" rows="10" readonly>${answer.contents }</textarea><br>
 					<p align="right">
-						<Button class="btn" name="likedAnswer" type="button" onclick="location.href='${ctx}/liked.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">♡ : ${answer.likeCount }</Button>
-						<c:if test="${isLogged }">
-							<c:choose>
-								<c:when test="${loginId == question.memberId }">
-									<Button class="btn" name="choose" type="button" onclick="location.href='${ctx}/choose.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">채택</Button>
-									<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
-								</c:when>
-								
-								<c:when test="${loginId == answer.memberId }"> <!-- 조건문 : 답변작성자일 때로 수정해야함!! -->
-									<Button class="btn" name="modifyAnswer" type="button" onclick="location.href='${ctx}/answerModify.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">수정</Button>
-								</c:when>
-								
-								<c:when test="${isAdmin }">
-									<Button class="btn" name="deleteAnswer" type="button" onclick="location.href='${ctx}/answerRemove.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">삭제</Button>
-								</c:when>
-								
-								<c:otherwise>
-									<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
-								</c:otherwise>
-							</c:choose>
+						<c:choose>
+							<c:when test="${isLogged && question.isChoose eq 0 }">
+								<c:choose>
+									<c:when test="${loginId == question.memberId}">
+										<Button class="btn" name="choose" type="button" onclick="location.href='${ctx}/choose.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">채택</Button>
+										<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
+									</c:when>
+									
+									<c:when test="${loginId == answer.memberId }"> <!-- 조건문 : 답변작성자일 때로 수정해야함!! -->
+										<Button class="btn" name="modifyAnswer" type="button" onclick="location.href='${ctx}/answerModify.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">수정</Button>
+									</c:when>
+
+									<c:when test="${isAdmin eq false }">
+										<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
+									</c:when>
+								</c:choose>
+							</c:when>
+							
+							<c:when test="${isLogged && answer.isChoose ne 0 }">
+								<B>채택됨</B>
+							</c:when>
+
+							<c:otherwise></c:otherwise>
+						</c:choose>
+
+						<c:if test="${isLogged && isAdmin }">
+							<Button class="btn" name="deleteAnswer" type="button" onclick="location.href='${ctx}/answerRemove.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">삭제</Button>
 						</c:if>
+						
+						<Button class="btn" name="likedAnswer" type="button" onclick="location.href='${ctx}/liked.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">♡ : ${answer.likeCount }</Button>
 					</p>
 				</td>
 			</tr>
 			</c:forEach>
-			<c:if test="${isLogged && isAdmin eq false }">
+			<c:if test="${isLogged && isAdmin eq false && loginId ne question.memberId}">
 			<tr>
 				<td></td>
 				<td>
