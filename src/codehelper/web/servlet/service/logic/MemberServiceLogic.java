@@ -24,22 +24,21 @@ public class MemberServiceLogic implements MemberService{
 		member.setId(id);
 		member.setPassword(password);
 		String loginId = memberStore.retrieveWithPassword(member);
-		member = memberStore.retrieve(loginId);
 		
-		return member;
-		
+		if (loginId != null && !loginId.isEmpty() ) {
+			return memberStore.retrieve(loginId);
+		}
+		return null;
 	}
 
 	@Override
 	public void modifyMember(Member member) {
 		memberStore.update(member);
-		
 	}
 
 	@Override
 	public int removeMember(String id) {
-		return memberStore.delete(id);
-		
+		return memberStore.delete(id);		
 	}
 
 	@Override

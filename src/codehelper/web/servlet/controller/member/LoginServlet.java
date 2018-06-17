@@ -25,14 +25,14 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if(loginId.equals("admin") && password.equals("admin")) {
-			session.setAttribute("name", "∞¸∏Æ¿⁄");
+			session.setAttribute("name", "Í¥ÄÎ¶¨Ïûê");
 			session.setAttribute("isAdmin", true);
 			session.setAttribute("loginId", loginId);
 			session.setAttribute("isLogged", true);
 		}
 		else {
 			Member member = memberService.login(loginId, password);
-			if(loginId.equals(member.getId())&&password.equals(member.getPassword())) {
+			if(member !=null && loginId.equals(member.getId())&&password.equals(member.getPassword())) {
 				session.setAttribute("name", member.getName());
 				session.setAttribute("isAdmin", false);
 				session.setAttribute("loginId", loginId);
