@@ -22,10 +22,10 @@ pageEncoding="UTF-8"%>
 	</div>
 	<br>
 	<div align="center">
-		<b>보유액 : ${member.balance }캐쉬<p>
+		<b>보유액 : ${balance }캐쉬<p>
 		<form action="${ctx}/exchange.do" method="get">
 			환전할 캐쉬 : <input type="text" name="cash" placeholder="금액입력"> 캐쉬
-			<br><br>지급될 금액은 수수료 10%입니다.<br><br></b>
+			<br><br>지급될 금액은 수수료 10%가 차감 됩니다.<br><br></b>
 			<table class="table table-hover table-condensed">
 				<colgroup>
 					<col width="10%">

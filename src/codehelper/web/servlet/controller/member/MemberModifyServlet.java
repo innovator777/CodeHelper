@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.service.MemberService;
@@ -19,7 +18,7 @@ public class MemberModifyServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("memberId");
+		String id = (String)request.getSession().getAttribute("loginId");
 		
 		MemberService memberService = new MemberServiceLogic();
 		Member member = memberService.findMember(id);
@@ -35,14 +34,16 @@ public class MemberModifyServlet extends HttpServlet {
 		
 		MemberService memberService = new MemberServiceLogic();
 	
-		HttpSession session = request.getSession();
-		Member member = (Member)session.getAttribute("member");
+		String id = (String)request.getSession().getAttribute("loginId");
 		
+		Member member = memberService.findMemeber(id);
 		member.setPassword(password);
 		member.setName(name);
 		memberService.modifyMember(member);
 		
-		response.sendRedirect(request.getContextPath());
+		request.getSession().setAttribute("name", member.getName());
+		
+		response.sendRedirect(request.getContextPath()+"/memberList.do");
 	}
 
 }

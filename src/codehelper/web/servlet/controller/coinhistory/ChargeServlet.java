@@ -35,7 +35,7 @@ public class ChargeServlet extends HttpServlet {
 		coinHistory.setBalance(member.getBalance() + Integer.parseInt(amount));
 		coinHistoryService.charge(coinHistory);
 		
-		response.sendRedirect(request.getContextPath()+"/views/my_member.jsp");
+		response.sendRedirect(request.getContextPath()+"/memberList.do");
 	}
 
 }

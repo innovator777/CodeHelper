@@ -22,7 +22,7 @@ pageEncoding="UTF-8"%>
 	</div>
 	<br><br>
 	<div align="left">
-		<Button type="button" onclick="location.href='${ctx}/views/bank_register.jsp?memberId=${member.id }'" formtarget="_self">등록</Button>
+		<Button type="button" onclick="location.href='${ctx}/views/bank_register.jsp'" formtarget="_self">등록</Button>
 	</div><br>
 	<table class="table table-hover table-condensed">
 		<colgroup>

@@ -35,10 +35,10 @@
 						<table class="table table-hover table-condensed">
 							<tr>
 								<td>
-									<h4><B>${member.name } 회원님</B></h4><p><center>아이디 : ${member.id }<br><br>
-									<Button type="button" onclick="location.href='${ctx}/memberModify.do?memberId=${member.id }'" formtarget="_self">회원정보 변경</Button>&nbsp&nbsp
-									<Button type="button" onclick="location.href='${ctx}/bankList.do?memberId=${member.id }'" formtarget="_self">내 계좌</Button>&nbsp&nbsp
-									<Button type="button" onclick="location.href='${ctx}/memberRemove.do?memberId=${member.id }'" formtarget="_self">회원탈퇴</Button>
+									<h4><B>${name } 회원님</B></h4><p><center>아이디 : ${id }<br><br>
+									<Button type="button" onclick="location.href='${ctx}/memberModify.do?id=${id }'" formtarget="_self">회원정보 변경</Button>&nbsp&nbsp
+									<Button type="button" onclick="location.href='${ctx}/bankList.do?id=${id }'" formtarget="_self">내 계좌</Button>&nbsp&nbsp
+									<Button type="button" onclick="location.href='${ctx}/memberRemove.do?id=${id }'" formtarget="_self">회원탈퇴</Button>
 									</center>
 								</td>
 							</tr>
@@ -49,10 +49,10 @@
 						<table class="table table-hover table-condensed">
 							<tr>
 								<td>
-									<h4><B>캐쉬 관리</B></h4><p><center>보유액 : ${member.balance }캐쉬<br><br>
+									<h4><B>캐쉬 관리</B></h4><p><center>보유액 : ${balance }캐쉬<br><br>
 									<Button type="button" onclick="location.href='${ctx}/views/coin_charge.jsp'" formtarget="_self">충전</Button>&nbsp&nbsp
 									<Button type="button" onclick="location.href='${ctx}/exchangeList.do'" formtarget="_self">환전</Button>&nbsp&nbsp
-									<Button type="button" onclick="location.href='${ctx}/coinList.do?memberId=${member.id }'" formtarget="_self">조회</Button>
+									<Button type="button" onclick="location.href='${ctx}/coinList.do?id=${id }'" formtarget="_self">조회</Button>
 									</center>
 								</td>
 							</tr>

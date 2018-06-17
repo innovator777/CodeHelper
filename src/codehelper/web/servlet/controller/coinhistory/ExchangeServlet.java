@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import codehelper.web.servlet.domain.CoinHistory;
 import codehelper.web.servlet.domain.CoinHistoryType;
-import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.service.CoinHistoryService;
 import codehelper.web.servlet.service.MemberService;
 import codehelper.web.servlet.service.logic.CoinHistoryServiceLogic;
@@ -28,13 +27,12 @@ public class ExchangeServlet extends HttpServlet {
 		coinHistory.setType(CoinHistoryType.EXCHANGE);
 		String amount = request.getParameter("cash");
 		coinHistory.setAmount(Integer.parseInt(amount));
-		String loginId = (String)request.getSession().getAttribute("loginId");
-		Member member = memberService.findMember(loginId);
-		coinHistory.setMemberId(member.getId());
-		coinHistory.setBalance(member.getBalance() - Integer.parseInt(amount));
+		String id = (String)request.getSession().getAttribute("loginId");
+		coinHistory.setMemberId(memberService.findMember(id).getId());
+		coinHistory.setBalance(memberService.findMember(id).getBalance() - Integer.parseInt(amount));
 		coinHistoryService.exchange(coinHistory);
 
-		response.sendRedirect(request.getContextPath()+"/views/my_member.jsp");
+		response.sendRedirect(request.getContextPath()+"/exchangeList.do");
 	}
 
 }
