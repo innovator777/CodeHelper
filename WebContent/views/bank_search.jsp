@@ -51,7 +51,7 @@ pageEncoding="UTF-8"%>
 				<c:otherwise>
 					<c:forEach items="${banks }" var="banks" varStatus="sts">
 						   <tr>
-				               <td>${banks.id }</td>
+				               <td>${sts.count }</td>
 				               <td>${banks.name }</td>
 				               <td>${banks.accountNumber }</td>
 				               <td>${banks.accountHolder }</td>     
