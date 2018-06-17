@@ -45,7 +45,9 @@ public class ReportAddServlet extends HttpServlet {
 		report.setContents(ReportType.valueOf(Integer.valueOf(contents)));
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 		report.setCreateDate(today);
-		Member member = (Member)request.getSession().getAttribute("member");
+		
+		String loginId = (String)request.getSession().getAttribute("loginId");
+		Member member = memberService.findMemeber(loginId);
 		report.setMemberId(member.getId());
 		reportService.addReport(report);
 		
