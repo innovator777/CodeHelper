@@ -35,8 +35,8 @@
 						<table class="table table-hover table-condensed">
 							<tr>
 								<td>
-									<h4><B>양종찬 관리자님</B></h4><p><center>아이디 : yang@gmail.com<br><br>
-									<Button name="modifyAInfo" type="button" onclick="location.href='#'" formtarget="_self">회원정보 변경</Button>
+									<h4><B>${name } 관리자님</B></h4><p><center>아이디 : ${id }<br><br>
+									<Button name="modifyAInfo" type="button" onclick="location.href='${ctx}/memberModify.do?id=${id }'" formtarget="_self">회원정보 변경</Button>
 									</center>
 								</td>
 							</tr>
@@ -47,8 +47,8 @@
 						<table class="table table-hover table-condensed">
 							<tr>
 								<td>
-									<h4><B>캐쉬 관리</B></h4><p><center>보유액 : 99999999캐쉬<br><br>
-									<Button name="changeMInfo" type="button" onclick="location.href='#'" formtarget="_self">조회</Button>
+									<h4><B>캐쉬 관리</B></h4><p><center>보유액 : ${balance }캐쉬<br><br>
+									<Button name="changeMInfo" type="button" onclick="location.href='${ctx}/coinList.do?id=${id }'" formtarget="_self">조회</Button>
 									</center>
 								</td>
 							</tr>
@@ -87,16 +87,38 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-				            	<td>1</td>
-				                <td>광고성 글입니다.</td>
-				                <td>고용석</td>
-				                <td>조혜인</td>
-				                <td>238</td>
-				                <td>3</td>
-				                <td>2018-01-01</td>
-				                <td>○</td>
-				            </tr>
+							<c:choose>
+								<c:when test="${reports eq null || empty reports }">
+									<tr>
+										<td colspan="6" align="center">신고 내역이 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${reports }" var="reports" varStatus="sts">
+										   <tr>
+								               <td>${reports.id }</td>
+								               <td>
+								               <c:choose>
+									                <c:when test="${reports.contents eq A }">광고성 글입니다.</c:when>
+													<c:when test="${reports.contents eq B }">관련없는 글입니다.</c:when>
+													<c:when test="${reports.contents eq C }">욕설 및 비방글입니다.</c:when>
+												</c:choose>
+								               </td>
+								               <td>${reports.memberId }</td>
+								               <td>${reports.attacker }</td>
+								               <td><a href="questionCount.do?questionId=${reports.questionId }">${reports.questionId }</a></td>
+								               <td>${reports.answerId }</td>
+								               <td>${reports.createDate }</td>
+								               <td>
+									               <c:choose>
+										             <c:when test="${reports.checked eq 0 }">X</c:when>
+										             <c:otherwise>O</c:otherwise>
+										           </c:choose>
+								               </td> 
+								           </tr>
+									</c:forEach>
+								</c:otherwise>
+					        </c:choose>
 						</tbody>
 					</table>
 				</td>

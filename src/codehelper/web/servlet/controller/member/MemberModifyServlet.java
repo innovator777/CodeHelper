@@ -42,8 +42,12 @@ public class MemberModifyServlet extends HttpServlet {
 		memberService.modifyMember(member);
 		
 		request.getSession().setAttribute("name", member.getName());
-		
-		response.sendRedirect(request.getContextPath()+"/memberList.do");
+		if(id.equals("admin")){
+			response.sendRedirect(request.getContextPath()+"/adminList.do");
+			}
+		else {
+			response.sendRedirect(request.getContextPath()+"/memberList.do");
+		}
 	}
 
 }
