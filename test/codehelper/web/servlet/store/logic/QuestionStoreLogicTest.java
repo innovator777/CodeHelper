@@ -27,8 +27,8 @@ public class QuestionStoreLogicTest {
 	@Test
 	public void testCreate() {
 //		Question question = new Question();
-//		question.setTitle("질문 타이틀");
-//		question.setContents("질문 내용");
+//		question.setTitle("C# 컴파일을 어떻게 하나요?");
+//		question.setContents("C# 프로그래밍을 처음 접한 조혜인이라고 합니다.");
 //		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 //		question.setCreatedDate(today);
 //		question.setMemberId("aaa@bu.ac.kr");
@@ -71,5 +71,17 @@ public class QuestionStoreLogicTest {
 	public void testRetrieveAll() {
 //		List<Question> list = store.retrieveAll();
 //		assertEquals(3, list.size());
+	}
+	
+	@Test
+	public void testRetrieveByTitle() {
+//		List<Question> list = store.retrieveByTitle("컴파일");
+//		assertEquals(4, list.size());
+	}
+	
+	@Test
+	public void testRetrieveByContents() {
+//		List<Question> list = store.retrieveByContents("조혜");
+//		assertEquals(4, list.size());
 	}
 }

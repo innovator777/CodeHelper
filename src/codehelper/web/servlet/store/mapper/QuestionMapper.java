@@ -13,4 +13,6 @@ public interface QuestionMapper {
 	Question selectById(int questionId);
 	List<Question> selectAll();
 	List<Question> selectByMember(String memberId);
+	List<Question> selectByTitle(String title);
+	List<Question> selectByContents(String contents);
 }

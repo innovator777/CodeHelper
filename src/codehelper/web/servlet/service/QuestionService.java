@@ -13,6 +13,8 @@ public interface QuestionService {
 	Question find(int id);
 	List<Question> findByMemeber(Member member);
 	List<Question> findAll();
+	List<Question> findByTitle(String title);
+	List<Question> findByContents(String contents);
 	boolean choose(int qid, int aid);
 	
 }

@@ -132,4 +132,44 @@ public class QuestionStoreLogic implements QuestionStore {
 		return result;
 	}
 
+	@Override
+	public List<Question> retrieveByTitle(String title) {
+		SqlSession session = factory.getSession();
+		
+		List<Question> result = null;
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.selectByTitle(title);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+
+	@Override
+	public List<Question> retrieveByContents(String contents) {
+		SqlSession session = factory.getSession();
+		
+		List<Question> result = null;
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.selectByContents(contents);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+
 }

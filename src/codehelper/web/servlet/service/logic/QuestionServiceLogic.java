@@ -57,4 +57,14 @@ public class QuestionServiceLogic implements QuestionService{
 		return true;
 	}
 
+	@Override
+	public List<Question> findByTitle(String title) {
+		return questionStore.retrieveByTitle(title);
+	}
+
+	@Override
+	public List<Question> findByContents(String contents) {
+		return questionStore.retrieveByContents(contents);
+	}
+
 }

@@ -13,5 +13,7 @@ public interface QuestionStore {
 	Question retrieve(int id);
 	List<Question> retrieveByMember(Member member);
 	List<Question> retrieveAll();
+	List<Question> retrieveByTitle(String title);
+	List<Question> retrieveByContents(String contents);
 
 }

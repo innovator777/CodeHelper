@@ -5,6 +5,32 @@
 
 <mapper namespace="codehelper.web.servlet.store.mapper.QuestionMapper">
 
+	<select id="selectByTitle" parameterType="string" resultType="Question">
+		select 
+		qId AS id,
+		qTitle AS title,
+		qContents AS contents,
+		qDate AS createdDate,
+		qReadCount AS readCount,		
+		qChoose AS isChoose,
+		mId AS memberId
+		from question_tb
+		where qTitle like '%'||#{title}||'%' 
+	</select>
+	
+	<select id="selectByContents" parameterType="string" resultType="Question">
+		select 
+		qId AS id,
+		qTitle AS title,
+		qContents AS contents,
+		qDate AS createdDate,
+		qReadCount AS readCount,		
+		qChoose AS isChoose,
+		mId AS memberId
+		from question_tb
+		where qContents like '%'||#{contents}||'%' 
+	</select>
+
 	<select id="selectById" parameterType="int" resultType="Question">
 		select 
 		qId AS id,
