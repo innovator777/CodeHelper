@@ -6,6 +6,6 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<c:redirect url="views/list.jsp"/>
+	<c:redirect url="views/question_list.jsp"/>
 </body>
 </html>

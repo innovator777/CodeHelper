@@ -38,7 +38,7 @@ public class BankAddServlet extends HttpServlet {
 		
 		bankService.addBankInfo(bank);
 		
-		response.sendRedirect(request.getContextPath());
+		response.sendRedirect(request.getContextPath()+"/views/my_member.jsp");
 		
 		
 	}

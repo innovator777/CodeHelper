@@ -11,9 +11,7 @@ import codehelper.web.servlet.domain.CoinHistory;
 import codehelper.web.servlet.domain.CoinHistoryType;
 import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.service.CoinHistoryService;
-import codehelper.web.servlet.service.MemberService;
 import codehelper.web.servlet.service.logic.CoinHistoryServiceLogic;
-import codehelper.web.servlet.service.logic.MemberServiceLogic;
 
 @WebServlet("/charge.do")
 public class ChargeServlet extends HttpServlet {
@@ -21,22 +19,19 @@ public class ChargeServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		CoinHistoryService coinHistoryService = new CoinHistoryServiceLogic();
-		MemberService memberService = new MemberServiceLogic();
 	
 		CoinHistory coinHistory = new CoinHistory();
 		coinHistory.setType(CoinHistoryType.CHARGE);
-		String amount = request.getParameter("coinAmounts");
-		coinHistory.setAmount(Integer.valueOf(amount));
+		String amount = request.getParameter("coinAmount");
+		coinHistory.setAmount(Integer.parseInt(amount));
 		Member member = (Member)request.getSession().getAttribute("member");
 		coinHistory.setMemberId(member.getId());
-		coinHistory.setBalance(member.getBalance() + Integer.valueOf(amount));
+		coinHistory.setBalance(member.getBalance() + Integer.parseInt(amount));
 		coinHistoryService.charge(coinHistory);
 		
-		member.setBalance(member.getBalance() + Integer.valueOf(amount));
-		memberService.modifyMember(member);
-		
-		response.sendRedirect("/views/my_member.jsp");
+		response.sendRedirect(request.getContextPath()+"/views/my_member.jsp");
 	}
 
 }

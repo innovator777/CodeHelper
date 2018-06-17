@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import codehelper.web.servlet.domain.Bank;
 import codehelper.web.servlet.service.BankService;
@@ -25,9 +26,9 @@ public class BankListServlet extends HttpServlet {
 		
 		List<Bank> banks = null;
 		banks = bankService.findByMember(id);
-		
-		request.setAttribute("banks", banks);
-		request.getRequestDispatcher("/views/searchBank.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		session.setAttribute("banks", banks);
+		request.getRequestDispatcher("/views/bank_search.jsp").forward(request, response);
 		
 		
 	}

@@ -1,6 +1,8 @@
 package codehelper.web.servlet.controller.coinhistory;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,29 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import codehelper.web.servlet.domain.CoinHistory;
-import codehelper.web.servlet.domain.CoinHistoryType;
 import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.service.CoinHistoryService;
 import codehelper.web.servlet.service.logic.CoinHistoryServiceLogic;
 
-@WebServlet("/exchange.do")
-public class ExchangeServlet extends HttpServlet {
+@WebServlet("/exchangeList.do")
+public class ExchangeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		CoinHistoryService coinHistoryService = new CoinHistoryServiceLogic();
-	
-		CoinHistory coinHistory = new CoinHistory();
-		coinHistory.setType(CoinHistoryType.EXCHANGE);
-		String amount = request.getParameter("cash");
-		coinHistory.setAmount(Integer.parseInt(amount));
+		CoinHistoryService coinhistoryService = new CoinHistoryServiceLogic();
+		
 		Member member = (Member)request.getSession().getAttribute("member");
-		coinHistory.setMemberId(member.getId());
-		coinHistory.setBalance(member.getBalance() - Integer.parseInt(amount));
-		coinHistoryService.exchange(coinHistory);
+		
+		List<CoinHistory> coins = coinhistoryService.findByMember(member.getId());
 
-		response.sendRedirect(request.getContextPath()+"/views/my_member.jsp");
+		request.setAttribute("member", member);
+		request.setAttribute("coins", coins);
+		request.getRequestDispatcher("/views/coin_exchange.jsp").forward(request, response);
 	}
 
 }
