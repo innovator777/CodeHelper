@@ -22,9 +22,9 @@
 	</div>
 	<br><br><br><br>
 	<div align="center">
-		<form action="#" method="post">
-			<input id="questionId" name="questionId" type="hidden" value="">
-			<input id="answerId" name="answerId" type="hidden" value="">
+		<form action="${ctx }/answerModify.do" method="post">
+			<input id="questionId" name="questionId" type="hidden" value="${questionId }">
+			<input id="answerId" name="answerId" type="hidden" value="${answerId }">
 			<table border="0">
 				<colgroup>
 					<col width="10%">
@@ -33,7 +33,7 @@
 				<tr height="100">
 					<th>내용</th>
 					<td>
-						<textarea id="contents" name="contents" class="form-control" rows="18" cols="80"></textarea>
+						<textarea id="contents" name="contents" class="form-control" rows="18" cols="80">${answer.contents }</textarea>
 					</td>
 				</tr>
 				<tr height="50">
