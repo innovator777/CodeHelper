@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 	</style>
 </head>
 <body>
-	<p align="center"><font color=black size=100px>Code Helper</font></p>
+	<p align="center"><a href="${ctx }"><font color=black size=100px>Code Helper</font></a></p>
 	<br><br>
 	<form action="${ctx }/questionAdd.do" method="post">
 		<div align="center">

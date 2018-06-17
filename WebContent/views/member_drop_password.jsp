@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body>
-	<p align="center"><font color=black size=100px>Code Helper</font></p>
+	<p align="center"><a href="${ctx }"><font color=black size=100px>Code Helper</font></a></p>
 	<br><br><br><br><br><br>
 	<center>
 	<table>
