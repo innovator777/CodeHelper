@@ -81,6 +81,7 @@ pageEncoding="UTF-8"%>
 				<td><textarea id="answerContents" name="answerContents"
 						class="form-control" rows="10" readonly>${answer.contents }</textarea><br>
 					<p align="right">
+						<Button class="btn" name="likedAnswer" type="button" onclick="location.href='${ctx}/liked.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">♡ : ${answer.likeCount }</Button>
 						<c:if test="${isLogged }">
 							<c:choose>
 								<c:when test="${loginId == question.memberId }">
