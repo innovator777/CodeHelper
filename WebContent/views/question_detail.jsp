@@ -106,6 +106,7 @@ pageEncoding="UTF-8"%>
 				</td>
 			</tr>
 			</c:forEach>
+			<c:if test="${isLogged && isAdmin eq false }">
 			<tr>
 				<td></td>
 				<td>
@@ -117,6 +118,7 @@ pageEncoding="UTF-8"%>
 					<input class="btn btn-success" type="submit" value="작성">
 				</td>
 			</tr>
+			</c:if>
 		</table>
 		</form>
 	</body>

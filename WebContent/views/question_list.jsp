@@ -36,12 +36,6 @@ pageEncoding="UTF-8"%>
 		</form>
 	</div>
 	<br>
-	<form>
-		<input type="radio"name="newest" checked>최신순
-		<input type="radio"name="check">조회순
-		<input type="radio"name="answer">답변순
-	</form>
-	
 	<table class="table table-hover table-condensed">
 		<colgroup>
 			<col width="5%">
@@ -87,7 +81,9 @@ pageEncoding="UTF-8"%>
 		</tbody>
 	</table>
 	<p align="right">
-		<a class="btn btn-sm btn-success" href="${ctx }/views/question_register.jsp">질문작성</a>
+		<c:if test="${isLogged && isAdmin eq false}">
+			<a class="btn btn-sm btn-success" href="${ctx }/views/question_register.jsp">질문작성</a>
+		</c:if>
 	</p>
 </body>
 </html>
