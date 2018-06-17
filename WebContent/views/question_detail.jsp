@@ -46,7 +46,6 @@ pageEncoding="UTF-8"%>
 								
 									<c:when test="${loginId == question.memberId }">
 										<Button class="btn" name="modifyQuestion" type="button" onclick="location.href='${ctx}/questionModify.do?questionId=${question.id }'" formtarget="_self">수정</Button>
-										<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
 									</c:when>
 									
 									<c:when test="${isAdmin eq false }">
@@ -58,6 +57,7 @@ pageEncoding="UTF-8"%>
 							
 							<c:when test="${isLogged && question.isChoose ne 0 }">
 								<B>채택완료</B>
+								<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
 							</c:when>
 							<c:otherwise></c:otherwise>
 						</c:choose>
