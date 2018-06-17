@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import codehelper.web.servlet.domain.Answer;
 import codehelper.web.servlet.domain.Member;
@@ -26,12 +25,10 @@ public class MemberListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
 		MemberService memberService = new MemberServiceLogic();
-		Member member = (Member)session.getAttribute("member");
 		
-		String id = member.getId();
-		member = memberService.findMemeber(id);
+		String id =(String)request.getSession().getAttribute("loginId");
+		Member member = memberService.findMemeber(id);
 
 		List<Question> questions = null;
 		QuestionService questionService = new QuestionServiceLogic();
@@ -43,7 +40,9 @@ public class MemberListServlet extends HttpServlet {
 		
 		request.setAttribute("questions", questions);
 		request.setAttribute("answers", answers);
-		request.setAttribute("member", member);
+		request.setAttribute("name", member.getName());
+		request.setAttribute("id", member.getId());
+		request.setAttribute("balance", member.getBalance());
 		
 		request.getRequestDispatcher("/views/my_member.jsp").forward(request, response);
 	}

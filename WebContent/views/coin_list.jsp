@@ -21,7 +21,7 @@ pageEncoding="UTF-8"%>
 			<%@ include file="header.jspf" %>
 		</div>
 		<br>
-		<div align="left"><p><strong><h4>보유액 : ${member.balance }캐쉬</h4></strong></p></div>
+		<div align="left"><p><strong><h4>보유액 : ${balance }캐쉬</h4></strong></p></div>
 		<br>
 		<table class="table table-hover table-condensed">
 			<colgroup>

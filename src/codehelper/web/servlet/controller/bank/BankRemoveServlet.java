@@ -22,7 +22,7 @@ public class BankRemoveServlet extends HttpServlet {
 		
 		bankService.removeBankInfo(id);
 		
-		response.sendRedirect(request.getContextPath()+"/views/my_member.jsp");
+		response.sendRedirect(request.getContextPath()+"/bankList.do");
 	}
 
 }

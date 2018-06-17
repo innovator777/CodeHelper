@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import codehelper.web.servlet.domain.CoinHistory;
-import codehelper.web.servlet.domain.Member;
-import codehelper.web.servlet.service.CoinHistoryService;
-import codehelper.web.servlet.service.logic.CoinHistoryServiceLogic;
+import codehelper.web.servlet.domain.Bank;
+import codehelper.web.servlet.service.BankService;
+import codehelper.web.servlet.service.MemberService;
+import codehelper.web.servlet.service.logic.BankServiceLogic;
+import codehelper.web.servlet.service.logic.MemberServiceLogic;
 
 @WebServlet("/exchangeList.do")
 public class ExchangeListServlet extends HttpServlet {
@@ -20,14 +21,16 @@ public class ExchangeListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		CoinHistoryService coinhistoryService = new CoinHistoryServiceLogic();
+		MemberService memberService = new MemberServiceLogic();
+		BankService bankService = new BankServiceLogic();
 		
-		Member member = (Member)request.getSession().getAttribute("member");
+		String id = (String)request.getSession().getAttribute("loginId");
+		int balance = memberService.findMemeber(id).getBalance();
 		
-		List<CoinHistory> coins = coinhistoryService.findByMember(member.getId());
+		List<Bank> banks = bankService.findByMember(id);
 
-		request.setAttribute("member", member);
-		request.setAttribute("coins", coins);
+		request.setAttribute("balance",balance);
+		request.setAttribute("banks", banks);
 		request.getRequestDispatcher("/views/coin_exchange.jsp").forward(request, response);
 	}
 
