@@ -40,14 +40,14 @@ public class ReportAddServlet extends HttpServlet {
 		else if(!questionId.isEmpty() && answerId.isEmpty()) {
 			report.setQuestionId(Integer.parseInt(questionId));
 		}
-		Member attackerMember = memberService.findMemeber(attacker);
+		Member attackerMember = memberService.findMember(attacker);
 		report.setAttacker(attackerMember.getName());
 		report.setContents(ReportType.valueOf(Integer.parseInt(contents)));
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 		report.setCreateDate(today);
 		
 		String loginId = (String)request.getSession().getAttribute("loginId");
-		Member member = memberService.findMemeber(loginId);
+		Member member = memberService.findMember(loginId);
 		report.setMemberId(member.getId());
 		reportService.addReport(report);
 		

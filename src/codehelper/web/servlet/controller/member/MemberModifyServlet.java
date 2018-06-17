@@ -22,7 +22,7 @@ public class MemberModifyServlet extends HttpServlet {
 		String id = request.getParameter("memberId");
 		
 		MemberService memberService = new MemberServiceLogic();
-		Member member = memberService.findMemeber(id);
+		Member member = memberService.findMember(id);
 		
 		request.setAttribute("member", member);
 		request.getRequestDispatcher("views/member_modify.jsp").forward(request, response);

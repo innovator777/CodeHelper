@@ -28,7 +28,7 @@ public class CoinListServlet extends HttpServlet {
 		MemberService memberService = new MemberServiceLogic();
 		
 		List<CoinHistory> coins = coinhistoryService.findByMember(id);
-		Member member = memberService.findMemeber(id);
+		Member member = memberService.findMember(id);
 
 		request.setAttribute("member", member);
 		request.setAttribute("coins", coins);

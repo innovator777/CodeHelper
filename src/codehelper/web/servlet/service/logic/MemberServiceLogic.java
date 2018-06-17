@@ -42,7 +42,7 @@ public class MemberServiceLogic implements MemberService{
 	}
 
 	@Override
-	public Member findMemeber(String id) {
+	public Member findMember(String id) {
 		Member member = new Member();
 		member=memberStore.retrieve(id);
 		return member;

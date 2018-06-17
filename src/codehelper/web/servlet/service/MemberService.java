@@ -8,6 +8,6 @@ public interface MemberService {
 	Member login(String id, String password);
 	void modifyMember(Member member);
 	int removeMember(String id);
-	Member findMemeber(String id);
+	Member findMember(String id);
 	
 }

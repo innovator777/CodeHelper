@@ -32,8 +32,7 @@ public class QuestionAddServlet extends HttpServlet {
 		question.setCreatedDate(today);
 		
 		String loginId = (String)request.getSession().getAttribute("loginId");
-		Member member = memberService.findMemeber(loginId);
-		question.setMemberId(member.getId());
+		question.setMemberId(loginId);
 		
 		int result = questionService.addQuestion(question);
 		if (result == 1) {

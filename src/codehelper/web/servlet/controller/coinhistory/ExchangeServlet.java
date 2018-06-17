@@ -29,7 +29,7 @@ public class ExchangeServlet extends HttpServlet {
 		String amount = request.getParameter("cash");
 		coinHistory.setAmount(Integer.parseInt(amount));
 		String loginId = (String)request.getSession().getAttribute("loginId");
-		Member member = memberService.findMemeber(loginId);
+		Member member = memberService.findMember(loginId);
 		coinHistory.setMemberId(member.getId());
 		coinHistory.setBalance(member.getBalance() - Integer.parseInt(amount));
 		coinHistoryService.exchange(coinHistory);

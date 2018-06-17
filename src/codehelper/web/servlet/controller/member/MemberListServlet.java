@@ -31,7 +31,7 @@ public class MemberListServlet extends HttpServlet {
 		Member member = (Member)session.getAttribute("member");
 		
 		String id = member.getId();
-		member = memberService.findMemeber(id);
+		member = memberService.findMember(id);
 
 		List<Question> questions = null;
 		QuestionService questionService = new QuestionServiceLogic();
