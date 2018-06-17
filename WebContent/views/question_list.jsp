@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
 				<option value="1">제목</option>
 				<option value="2">내용</option>
 			</select>&nbsp;&nbsp;
-			<input type="search" size="90" name="serchEdit" placeholder="검색">&nbsp;&nbsp;
+			<input type="search" size="90" name="searchEdit" placeholder="검색">&nbsp;&nbsp;
 			<input type="submit" value="검색">
 		</form>
 	</div>
