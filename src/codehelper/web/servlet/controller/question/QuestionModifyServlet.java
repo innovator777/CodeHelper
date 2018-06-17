@@ -30,7 +30,7 @@ public class QuestionModifyServlet extends HttpServlet {
 		Question question = questionService.find(Integer.parseInt(questionId));
 		request.setAttribute("question", question);
 		
-		request.getRequestDispatcher("question_modify.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/question_modify.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
