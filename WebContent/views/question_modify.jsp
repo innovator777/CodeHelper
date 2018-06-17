@@ -19,8 +19,8 @@ pageEncoding="UTF-8"%>
 <body>
 	<p align="center"><font color=black size=100px>Code Helper</font></p>
 	<br><br>
-	<form action="#" method="post" onsubmit="return beforeSubmit();">
-		<input id="questionId" name="questionId" type="hidden" value="">
+	<form action="${ctx }/questionModify.do" method="post">
+		<input id="questionId" name="questionId" type="hidden" value="${question.id }">
 		<div align="center">
 		<table border="0" width="700">
             <colgroup>
@@ -29,11 +29,11 @@ pageEncoding="UTF-8"%>
             </colgroup>
 			<tr>
 				<th height="50">제목</th>
-				<td><input id="qTitle"  name="qTitle" class="form-control" type="text" value=""></td>
+				<td><input id="qTitle"  name="qTitle" class="form-control" type="text" value="${question.title }"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea id="qContents" name="qContents" class="form-control" rows="20"></textarea>
+				<td><textarea id="qContents" name="qContents" class="form-control" rows="20">${question.contents }</textarea>
 			</tr>
 		</table>
 		</div>

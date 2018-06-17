@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
@@ -59,15 +60,22 @@ pageEncoding="UTF-8"%>
 			</tr>
 		</thead>
 		<tbody>
+			<c:forEach items="${questionList }" var="question" varStatus="sts">
 			<tr>
-            	<td>1</td>
-                <td><a href="#">자바소스코드 오류좀봐주세요</a></td>
-                <td>90</td>
-                <td>2</td>
-                <td>X</td>                
+            	<td>${sts.count }</td>
+                <td><a href="questionCount.do?questionId=${question.id }">${question.title }</a></td>
+                <td>${question.readCount }</td>
+                <td>${fn:length(question.answers) }</td>
+                <td>
+                	<c:choose>
+                		<c:when test="${question.isChoose eq null }">X</c:when>
+                		<c:otherwise>O</c:otherwise>
+                	</c:choose>
+                </td>
             </tr>
+            </c:forEach>
 		</tbody>
 	</table>
-	<p align="right"><a class="btn btn-sm btn-success" href="${ctx }/views/registerForm.jsp">질문작성</a></p>
+	<p align="right"><a class="btn btn-sm btn-success" href="${ctx }/views/question_register.jsp">질문작성</a></p>
 </body>
 </html>

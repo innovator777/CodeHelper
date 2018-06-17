@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
@@ -19,8 +18,7 @@ pageEncoding="UTF-8"%>
 <body>
 	<p align="center"><font color=black size=100px>Code Helper</font></p>
 	<br><br>
-	<form action="#" method="post" onsubmit="return beforeSubmit();">
-		<input id="questionId" name="questionId" type="hidden" value="">
+	<form action="${ctx }/questionAdd.do" method="post">
 		<div align="center">
 		<table border="0" width="700">
             <colgroup>
