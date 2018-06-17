@@ -26,7 +26,7 @@ public class AnswerModifyServlet extends HttpServlet {
 		
 		request.setAttribute("answer", answer);
 		request.setAttribute("questionId", questionId);
-		request.getRequestDispatcher("answer_modify.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/answer_modify.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

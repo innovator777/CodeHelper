@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if(loginId.equals("admin") && password.equals("admin")) {
-			session.setAttribute("name", "ê´€ë¦¬ì");
+			session.setAttribute("name", "°ü¸®ÀÚ");
 			session.setAttribute("isAdmin", true);
 			session.setAttribute("loginId", loginId);
 			session.setAttribute("isLogged", true);

@@ -26,7 +26,8 @@
 	</update>
     
     <select id="selectById" parameterType="int" resultType="Answer">
-    select aContents AS contents,
+    select aId AS id, 
+    aContents AS contents,
     aLike AS likeCount,
     aChoose AS isChoose,
     aDate AS createdDate,
@@ -37,7 +38,8 @@
     </select>
     
     <select id="selectByQuestion" parameterType="int" resultType="Answer">
-  	select aContents AS contents,
+  	select aId AS id,
+  	aContents AS contents,
   	aLike AS likeCount,
   	aChoose AS isChoose,
   	aDate AS createdDate,

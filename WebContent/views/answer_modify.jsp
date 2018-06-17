@@ -24,7 +24,7 @@
 	<div align="center">
 		<form action="${ctx }/answerModify.do" method="post">
 			<input id="questionId" name="questionId" type="hidden" value="${questionId }">
-			<input id="answerId" name="answerId" type="hidden" value="${answerId }">
+			<input id="answerId" name="answerId" type="hidden" value="${answer.id }">
 			<table border="0">
 				<colgroup>
 					<col width="10%">
