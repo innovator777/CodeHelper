@@ -12,7 +12,7 @@ import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.store.MemberStore;
 import codehelper.web.servlet.store.logic.MemberStoreLogic;
 
-@WebServlet("/Signup.do")
+@WebServlet("/signup.do")
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

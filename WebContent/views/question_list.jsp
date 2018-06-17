@@ -25,13 +25,13 @@ pageEncoding="UTF-8"%>
 	
 	<br>
 	<div align="center">
-		<form action="#" method="post">
+		<form action="${ctx }/questionSearch.do" method="post">
 			<select name="searchType">
-				<option value="empty" selected>선택하세요</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
+				<option value="0" selected>선택하세요</option>
+				<option value="1">제목</option>
+				<option value="2">내용</option>
 			</select>&nbsp;&nbsp;
-			<input type="search" size="90" name="serchName" placeholder="검색">&nbsp;&nbsp;
+			<input type="search" size="90" name="serchEdit" placeholder="검색">&nbsp;&nbsp;
 			<input type="submit" value="검색">
 		</form>
 	</div>
@@ -60,22 +60,34 @@ pageEncoding="UTF-8"%>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${questionList }" var="question" varStatus="sts">
-			<tr>
-            	<td>${sts.count }</td>
-                <td><a href="questionCount.do?questionId=${question.id }">${question.title }</a></td>
-                <td>${question.readCount }</td>
-                <td>${fn:length(question.answers) }</td>
-                <td>
-                	<c:choose>
-                		<c:when test="${question.isChoose eq null }">X</c:when>
-                		<c:otherwise>O</c:otherwise>
-                	</c:choose>
-                </td>
-            </tr>
-            </c:forEach>
+			<c:choose>
+				<c:when test="${questionList eq null || empty questionList}">
+					<tr>
+						<td colspan="5" align="center">질문 목록이 없습니다.</td>
+					</tr>
+				</c:when>
+				
+				<c:otherwise>
+					<c:forEach items="${questionList }" var="question" varStatus="sts">
+						<tr>
+			            	<td>${sts.count }</td>
+			                <td><a href="questionCount.do?questionId=${question.id }">${question.title }</a></td>
+			                <td>${question.readCount }</td>
+			                <td>${fn:length(question.answers) }</td>
+			                <td>
+			                	<c:choose>
+			                		<c:when test="${question.isChoose eq null }">X</c:when>
+			                		<c:otherwise>O</c:otherwise>
+			                	</c:choose>
+			                </td>
+			            </tr>
+		            </c:forEach>
+				</c:otherwise>
+			</c:choose>
 		</tbody>
 	</table>
-	<p align="right"><a class="btn btn-sm btn-success" href="${ctx }/views/question_register.jsp">질문작성</a></p>
+	<p align="right">
+		<a class="btn btn-sm btn-success" href="${ctx }/views/question_register.jsp">질문작성</a>
+	</p>
 </body>
 </html>

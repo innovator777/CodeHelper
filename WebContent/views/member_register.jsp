@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
 	<p align="center"><font color=black size=100px>Code Helper</font></p>
 	<div align="center">
 	<br><br>
-	<form action="${ctx}/Signup.do" method="post">
+	<form action="${ctx}/signup.do" method="post">
 		<table border="0" width="500" height="200">
 			<colgroup>
 				<col width="25%">

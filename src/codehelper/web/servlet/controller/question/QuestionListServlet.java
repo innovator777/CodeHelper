@@ -32,7 +32,7 @@ public class QuestionListServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("questionList", questionList);
-		request.getRequestDispatcher("list.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/question_list.jsp").forward(request, response);
 	}
 
 }
