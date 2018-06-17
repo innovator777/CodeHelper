@@ -11,11 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import codehelper.web.servlet.domain.Answer;
-import codehelper.web.servlet.domain.Member;
 import codehelper.web.servlet.service.AnswerService;
-import codehelper.web.servlet.service.MemberService;
 import codehelper.web.servlet.service.logic.AnswerServiceLogic;
-import codehelper.web.servlet.service.logic.MemberServiceLogic;
 
 @WebServlet("/answerAdd.do")
 public class AnswerAddServlet extends HttpServlet {
@@ -23,7 +20,6 @@ public class AnswerAddServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AnswerService answerService = new AnswerServiceLogic();
-		MemberService memberService = new MemberServiceLogic();
 		
 		String contents = request.getParameter("contents");
 		String questionId = request.getParameter("questionId");
@@ -35,8 +31,7 @@ public class AnswerAddServlet extends HttpServlet {
 		answer.setQuestionId(Integer.parseInt(questionId));
 		
 		String loginId = (String)request.getSession().getAttribute("loginId");
-		Member member = memberService.findMember(loginId);
-		answer.setMemberId(member.getId());
+		answer.setMemberId(loginId);
 		
 		answerService.addAnswer(answer);
 		
