@@ -31,7 +31,6 @@ public class ReportAddServlet extends HttpServlet {
 		String attacker = request.getParameter("attacker");
 		String contents = request.getParameter("contents");
 		
-		
 		Report report = new Report();
 		if(!questionId.isEmpty() && !answerId.isEmpty()) {
 			report.setQuestionId(Integer.parseInt(questionId));
@@ -41,7 +40,7 @@ public class ReportAddServlet extends HttpServlet {
 			report.setQuestionId(Integer.parseInt(questionId));
 		}
 		Member attackerMember = memberService.findMember(attacker);
-		report.setAttacker(attackerMember.getName());
+		report.setAttacker(attackerMember.getId());
 		report.setContents(ReportType.valueOf(Integer.parseInt(contents)));
 		Date today = new Date(Calendar.getInstance().getTimeInMillis());
 		report.setCreateDate(today);

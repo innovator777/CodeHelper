@@ -50,7 +50,7 @@ pageEncoding="UTF-8"%>
 									</c:when>
 									
 									<c:when test="${isAdmin eq false }">
-										<Button class="btn" name="reportQuestion" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
+										<Button class="btn" name="reportQuestion" type="button" onclick="location.href='${ctx}/reportSendInfo.do?questionId=${question.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
 									</c:when>
 												
 								</c:choose>
@@ -92,7 +92,7 @@ pageEncoding="UTF-8"%>
 								<c:choose>
 									<c:when test="${loginId == question.memberId}">
 										<Button class="btn" name="choose" type="button" onclick="location.href='${ctx}/choose.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">채택</Button>
-										<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
+										<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/reportSendInfo.do?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
 									</c:when>
 									
 									<c:when test="${loginId == answer.memberId }"> <!-- 조건문 : 답변작성자일 때로 수정해야함!! -->
@@ -100,7 +100,7 @@ pageEncoding="UTF-8"%>
 									</c:when>
 
 									<c:when test="${isAdmin eq false }">
-										<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/views/report_register.jsp?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
+										<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/reportSendInfo.do?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
 									</c:when>
 								</c:choose>
 							</c:when>

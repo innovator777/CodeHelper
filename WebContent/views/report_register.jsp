@@ -22,7 +22,7 @@
 		<form action="${ctx }/reportAdd.do" method="post">
 			<input id="questionId" name="questionId" type="hidden" value="${questionId }">
 			<input id="answerId" name="answerId" type="hidden" value="${answerId }">
-			<input id="attacker" name="attacker" type="hidden" value="${attacker } }">
+			<input id="attacker" name="attacker" type="hidden" value="${attacker }">
 			<select name="contents">
 				<option value="0" selected>선택하세요</option>
 				<option value="1">광고성 글입니다.</option>

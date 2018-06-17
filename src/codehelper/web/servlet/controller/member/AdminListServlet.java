@@ -41,7 +41,7 @@ public class AdminListServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("reports", reports);
-		request.setAttribute("name", "ê´€ë¦¬ì");
+		request.setAttribute("name", "°ü¸®ÀÚ");
 		request.setAttribute("id", "admin");
 		request.setAttribute("balance", "99999999999999");
 		request.getRequestDispatcher("/views/my_admin.jsp").forward(request, response);

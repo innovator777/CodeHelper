@@ -64,7 +64,8 @@
 					<table class="table table-hover table-condensed">
 						<colgroup>
 							<col width="5%">
-							<col width="35%">
+							<col width="25%">
+							<col width="10%">
 							<col width="10%">
 							<col width="10%">
 							<col width="10%">
@@ -81,7 +82,7 @@
 								<th>질문번호</th>
 								<th>답변번호</th>
 								<th>날짜</th>
-								<th>확인</th>
+								<th colspan="2">확인</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -113,6 +114,11 @@
 										             <c:otherwise>O</c:otherwise>
 										           </c:choose>
 								               </td> 
+								               <td>
+								               		<c:if test="${report.checked eq 0 }">
+								               			<Button class="btn" name="check" type="button" onclick="location.href='#'" formtarget="_self">확인</Button>
+								               		</c:if>
+								               </td>
 								           </tr>
 									</c:forEach>
 								</c:otherwise>
