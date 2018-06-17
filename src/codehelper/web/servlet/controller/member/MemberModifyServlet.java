@@ -36,7 +36,7 @@ public class MemberModifyServlet extends HttpServlet {
 	
 		String id = (String)request.getSession().getAttribute("loginId");
 		
-		Member member = memberService.findMemeber(id);
+		Member member = memberService.findMember(id);
 		member.setPassword(password);
 		member.setName(name);
 		memberService.modifyMember(member);

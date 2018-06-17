@@ -25,7 +25,7 @@ public class ExchangeListServlet extends HttpServlet {
 		BankService bankService = new BankServiceLogic();
 		
 		String id = (String)request.getSession().getAttribute("loginId");
-		int balance = memberService.findMemeber(id).getBalance();
+		int balance = memberService.findMember(id).getBalance();
 		
 		List<Bank> banks = bankService.findByMember(id);
 
