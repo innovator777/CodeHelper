@@ -65,6 +65,7 @@
 		qChoose AS isChoose,
 		mId as memberId
 		from question_tb
+		order by qId desc
 	</select>
 
 	<insert id="insert" parameterType="Question" useGeneratedKeys="true" keyProperty="id">

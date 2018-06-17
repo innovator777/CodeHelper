@@ -35,8 +35,7 @@ public class AnswerAddServlet extends HttpServlet {
 		answer.setQuestionId(Integer.parseInt(questionId));
 		
 		String loginId = (String)request.getSession().getAttribute("loginId");
-		Member member = memberService.findMemeber(loginId);
-		answer.setMemberId(member.getId());
+		answer.setMemberId(loginId);
 		
 		answerService.addAnswer(answer);
 		

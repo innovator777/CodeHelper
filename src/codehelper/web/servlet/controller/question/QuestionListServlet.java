@@ -35,4 +35,9 @@ public class QuestionListServlet extends HttpServlet {
 		request.getRequestDispatcher("/views/question_list.jsp").forward(request, response);
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doGet(request, response);
+	}
+	
 }

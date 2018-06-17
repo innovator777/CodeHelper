@@ -37,8 +37,8 @@ public class QuestionAddServlet extends HttpServlet {
 		
 		int result = questionService.addQuestion(question);
 		if (result == 1) {
-			request.setAttribute("questionId", question.getId());
-			request.getRequestDispatcher("questionDetail.do").forward(request, response);
+//			request.setAttribute("questionId", question.getId());
+			request.getRequestDispatcher("questionList.do").forward(request, response);
 		}
 	}
 }
