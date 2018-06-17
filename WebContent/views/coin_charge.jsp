@@ -19,7 +19,7 @@
 	<p align="center"><font color=black size=100px>Code Helper</font></p>
 	<br><br><br><br><br><br>
 	<div align="center">
-		<form action="#" method="get">
+		<form action="${ctx}/charge.do" method="get">
 			<input type="text" id="coinAmount" name="coinAmount">
 			<input class="btn btn-success" type="submit" value="충전">
 		</form>

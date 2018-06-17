@@ -45,7 +45,7 @@ public class MemberListServlet extends HttpServlet {
 		request.setAttribute("answers", answers);
 		request.setAttribute("member", member);
 		
-		request.getRequestDispatcher("/views/myMember.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/my_member.jsp").forward(request, response);
 	}
 
 }

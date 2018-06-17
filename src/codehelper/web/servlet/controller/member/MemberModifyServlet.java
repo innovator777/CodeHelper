@@ -25,7 +25,7 @@ public class MemberModifyServlet extends HttpServlet {
 		Member member = memberService.findMemeber(id);
 		
 		request.setAttribute("member", member);
-		request.getRequestDispatcher("views/modifyMember.jsp").forward(request, response);
+		request.getRequestDispatcher("views/member_modify.jsp").forward(request, response);
 		
 	}
 

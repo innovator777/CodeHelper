@@ -22,10 +22,10 @@ pageEncoding="UTF-8"%>
 	</div>
 	<br>
 	<div align="center">
-		<b>보유액 : 1000캐쉬<p>
-		<form action="#" method="get">
+		<b>보유액 : ${member.balance }캐쉬<p>
+		<form action="${ctx}/exchange.do" method="get">
 			환전할 캐쉬 : <input type="text" name="cash" placeholder="금액입력"> 캐쉬
-			<br><br>지급될 금액 : 900원(수수료 10%)<br><br></b>
+			<br><br>지급될 금액은 수수료 10%입니다.<br><br></b>
 			<table class="table table-hover table-condensed">
 				<colgroup>
 					<col width="10%">
@@ -42,25 +42,28 @@ pageEncoding="UTF-8"%>
 						<th>예금주</th>
 						<th>계좌선택</th>
 					</tr>
-				</thead>
+				</thead> 
 				<tbody>
-					<tr>
-		                <td>1</td>
-		                <td>국민은행</td>
-		                <td>01011111111</td>
-		                <td>진권기</td>
-		                <td><input type="radio"name="check1" checked></td>            
-		            </tr>
-		            <tr>
-		                <td>2</td>
-		                <td>기업은행</td>
-		                <td>112999999999</td>
-		                <td>진권기</td>
-		                <td><input type="radio"name="check2"></td>
-		            </tr>
+					<c:choose>
+						<c:when test="${banks eq null || empty banks }">
+							<tr>
+								<td colspan="6" align="center">등록된 계좌가 없습니다.</td>
+							</tr>
+					</c:when>
+						<c:otherwise>
+							<c:forEach items="${banks }" var="banks" varStatus="sts">
+								<tr>
+				            		<td>${banks.id }</td>
+				              	  	<td>${banks.name }</td>
+				            	    <td>${banks.accountNumber }</td>
+				             	   <td>${banks.accountHolder }</td>     
+				             	   <td><input class="btn btn-success" type="submit" value="환전"></td>       
+				           	 </tr>
+							</c:forEach>
+						</c:otherwise>
+	       			 </c:choose>
 				</tbody>
 			</table>
-			<input class="btn btn-success" type="submit" value="환전">
 		</form>
 	</div>	
 </body>

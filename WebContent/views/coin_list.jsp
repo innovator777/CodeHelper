@@ -21,7 +21,7 @@ pageEncoding="UTF-8"%>
 			<%@ include file="header.jspf" %>
 		</div>
 		<br>
-		<div align="left"><p><strong><h4>보유액 : 1000캐쉬</h4></strong></p></div>
+		<div align="left"><p><strong><h4>보유액 : ${member.balance }캐쉬</h4></strong></p></div>
 		<br>
 		<table class="table table-hover table-condensed">
 			<colgroup>
@@ -35,34 +35,34 @@ pageEncoding="UTF-8"%>
 					<th>분류</th>
 					<th>금액</th>
 					<th>보유액</th>
-					<th>질문제목</th>
+					<th>질문번호</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-	            	<td>질문</td>
-	                <td>-1000</td>
-	                <td>1000</td>
-	                <td><a href="#">java소스코드 질문</a></td>            
-	            </tr>
-	            <tr>
-	            	<td>환전</td>
-	                <td>-10000</td>
-	                <td>2000</td>
-	                <td><div align="center">-</div></td>            
-	            </tr>
-	            <tr>
-	            	<td>충전</td>
-	                <td>10000</td>
-	                <td>12000</td>
-	                <td><div align="center">-</div></td>            
-	            </tr>
-	            <tr>
-	            	<td>답변</td>
-	                <td>1000</td>
-	                <td>2000</td>
-	                <td><a href="#">c++ 좀 도와주세요</a></td>            
-	            </tr>
+				<c:choose>
+				<c:when test="${coins eq null || empty coins }">
+					<tr>
+						<td colspan="6" align="center">등록된 내용이 없습니다.</td>
+					</tr>
+				</c:when>
+					<c:otherwise>
+						<c:forEach items="${coins }" var="coins" varStatus="sts">
+							<tr>
+				            	<td>${coins.type }</td>
+				                <td>${coins.amount }</td>
+				                <td>${coins.balance }</td>
+				                <c:choose>
+									<c:when test="${coins.questionId eq 0}">
+				                		<td><div align="center">-</div></td>   
+				                	</c:when>
+				                	<c:otherwise>
+				                		<td>${coins.questionId }</td>
+				                	</c:otherwise>
+				                </c:choose>
+				            </tr>
+						</c:forEach>
+					</c:otherwise>
+	        </c:choose>
 			</tbody>
 		</table>
 	</body>
