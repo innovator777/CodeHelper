@@ -87,12 +87,28 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-				            	<td>1</td>
-				                <td><a href="detail.jsp">asdf</a></td>
-				                <td>1</td>
-				                <td>OK</td>
-				            </tr>
+							<c:choose>
+								<c:when test="${questions eq null || empty questions }">
+									<tr>
+										<td colspan="6" align="center">작성한 질문이 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${questions }" var="questions" varStatus="sts">
+										   <tr>
+								               <td>${questions.id }</td>
+								               <td><a href="questionCount.do?questionId=${questions.id }">${questions.title }</a></td>
+								               <td>${qCounts}</td>
+								               <td>
+									               <c:choose>
+									               	<c:when test="${questions.isChoose eq 0 }">X</c:when>
+									               	<c:otherwise>O</c:otherwise>
+									               </c:choose>
+								               </td>      
+								           </tr>
+									</c:forEach>
+								</c:otherwise>
+					        </c:choose>
 						</tbody>
 					</table>
 				</td>
@@ -108,18 +124,34 @@
 						<thead>
 							<tr>
 								<th>번호</th>
-								<th>질문번호</th>
+								<th>질문제목</th>
 								<th>추천수</th>
 								<th>채택여부</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-				            	<td>2</td>
-				                <td><a href="detail.jsp">2</a></td>
-				                <td>2</td>
-				                <td>OK</td>
-				            </tr>
+							<c:choose>
+								<c:when test="${answers eq null || empty answers }">
+									<tr>
+										<td colspan="6" align="center">작성한 답글이 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${answers }" var="answers" varStatus="sts">
+										   <tr>
+								               <td>${answers.id }</td>
+								               <td><a href="questionCount.do?questionId=${answers.questionId }">${qTitles }</a></td>
+								               <td>${answers.likeCount }</td>
+								               <td>
+									               <c:choose>
+											           <c:when test="${answers.isChoose eq 0 }">X</c:when>
+											           <c:otherwise>O</c:otherwise>
+										           </c:choose>
+								               </td> 
+								           </tr>
+									</c:forEach>
+								</c:otherwise>
+					        </c:choose>
 						</tbody>
 					</table>
 				</td>

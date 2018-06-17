@@ -1,6 +1,7 @@
 package codehelper.web.servlet.controller.member;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -37,7 +38,20 @@ public class MemberListServlet extends HttpServlet {
 		List<Answer> answers = null;
 		AnswerService answerService = new AnswerServiceLogic();
 		answers = answerService.findByMember(id);
+		ArrayList<String> qCounts = new ArrayList<String>();
+		for(int i=0;i<questions.size();i++) {
+			int qCount=answerService.findByQuestion(questions.get(i).getId()).size();
+			qCounts.add(String.valueOf(qCount));
+		}
 		
+		ArrayList<String> qTitles = new ArrayList<String>();
+		for(int i=0;i<questions.size();i++) {
+			String qTitle=questionService.find(answers.get(i).getQuestionId()).getTitle();
+			qTitles.add(qTitle);
+		}
+		
+		request.setAttribute("qTitles", qTitles);
+		request.setAttribute("qCounts", qCounts);
 		request.setAttribute("questions", questions);
 		request.setAttribute("answers", answers);
 		request.setAttribute("name", member.getName());
