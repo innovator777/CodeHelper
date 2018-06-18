@@ -55,9 +55,11 @@ pageEncoding="UTF-8"%>
 								</c:choose>
 							</c:when>
 							
-							<c:when test="${isLogged && question.isChoose ne 0 }">
+							<c:when test="${isLogged && question.isChoose ne 0}">
 								<B>채택완료</B>
-								<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
+								<c:if test="${loginId == question.memberId}">
+									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
+								</c:if>
 							</c:when>
 							<c:otherwise></c:otherwise>
 						</c:choose>
@@ -95,8 +97,9 @@ pageEncoding="UTF-8"%>
 										<Button class="btn" name="reportAnswer" type="button" onclick="location.href='${ctx}/reportSendInfo.do?questionId=${question.id }&answerId=${answer.id }&attacker=${question.memberId }'" formtarget="_self">신고</Button>
 									</c:when>
 									
-									<c:when test="${loginId == answer.memberId }"> <!-- 조건문 : 답변작성자일 때로 수정해야함!! -->
+									<c:when test="${loginId == answer.memberId }">
 										<Button class="btn" name="modifyAnswer" type="button" onclick="location.href='${ctx}/answerModify.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">수정</Button>
+										<Button class="btn" name="deleteAnswer" type="button" onclick="location.href='${ctx}/answerRemove.do?questionId=${question.id }&answerId=${answer.id }'" formtarget="_self">삭제</Button>
 									</c:when>
 
 									<c:when test="${isAdmin eq false }">
@@ -107,6 +110,9 @@ pageEncoding="UTF-8"%>
 							
 							<c:when test="${isLogged && answer.isChoose ne 0 }">
 								<B>채택됨</B>
+								<c:if test="${loginId == answer.memberId}">
+									<Button class="btn" name="deleteQuestion" type="button" onclick="location.href='${ctx}/questionRemove.do?questionId=${question.id }'" formtarget="_self">삭제</Button>
+								</c:if>
 							</c:when>
 
 							<c:otherwise></c:otherwise>

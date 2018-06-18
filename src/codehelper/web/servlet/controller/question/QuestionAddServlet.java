@@ -38,7 +38,7 @@ public class QuestionAddServlet extends HttpServlet {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('ìºì‰¬ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤!!!');");
+			out.println("alert('Ä³½¬°¡ ºÎÁ·ÇÕ´Ï´Ù!!!');");
 			out.println("history.back();");
 			out.println("</script>");
 		}

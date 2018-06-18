@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
 			<tr>
 				<th>닉네임</th>
 				<td><input type="text" name="nickname" class="form-control"></td>
-				<td><center><input type="button" class="btn" value="중복확인"></center></td>
+				<td></td>
 			</tr>
 		</table>
 		<br>
