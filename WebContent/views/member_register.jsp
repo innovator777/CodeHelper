@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 	</style>
 </head>
 <body>
-	<p align="center"><font color=black size=100px>Code Helper</font></p>
+	<p align="center"><a href="${ctx }"><font color=black size=100px>Code Helper</font></a></p>
 	<div align="center">
 	<br><br>
 	<form action="${ctx}/signup.do" method="post">
@@ -36,7 +36,7 @@ pageEncoding="UTF-8"%>
 						<option value="naver.com">naver.com</option>
 					</select>
 				</td>
-				<td><input class="btn" type="button" value="중복확인"></td>
+				<td></td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
@@ -52,7 +52,6 @@ pageEncoding="UTF-8"%>
 				<th>닉네임</th>
 				<td>
 					<input id="nickname" name="nickname" type="text" value=""> 
-					<input class="btn" type="button" value="중복확인">
 				</td>
 				<td></td>
 			</tr>

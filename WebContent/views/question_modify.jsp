@@ -17,7 +17,7 @@ pageEncoding="UTF-8"%>
 	</style>
 </head>
 <body>
-	<p align="center"><font color=black size=100px>Code Helper</font></p>
+	<p align="center"><a href="${ctx }"><font color=black size=100px>Code Helper</font></a></p>
 	<br><br>
 	<form action="${ctx }/questionModify.do" method="post">
 		<input id="questionId" name="questionId" type="hidden" value="${question.id }">

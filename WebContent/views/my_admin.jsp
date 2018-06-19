@@ -17,12 +17,12 @@
 		</style>
 	</head>
 	<body>
-		<p align="center"><font color=black size=100px>Code Helper</font></p>
+		<p align="center"><a href="${ctx }"><font color=black size=100px>Code Helper</font></a></p>
 		<div align="right">
 			<%@ include file="header.jspf" %>
 		</div>
 		<br>
-		<center>
+		<div align="center">
 		<table width="1000">
 			<colgroup>
 				<col width="48%">
@@ -36,7 +36,6 @@
 							<tr>
 								<td>
 									<h4><B>${name } 관리자님</B></h4><p><center>아이디 : ${id }<br><br>
-									</center>
 								</td>
 							</tr>
 						</table>
@@ -47,7 +46,6 @@
 							<tr>
 								<td>
 									<h4><B>캐쉬 관리</B></h4><p><center>보유액 : ${balance }캐쉬<br><br>
-									</center>
 								</td>
 							</tr>
 						</table>
@@ -89,7 +87,7 @@
 							<c:choose>
 								<c:when test="${reports eq null || empty reports }">
 									<tr>
-										<td colspan="6" align="center">신고 내역이 없습니다.</td>
+										<td colspan="9" align="center">신고 내역이 없습니다.</td>
 									</tr>
 								</c:when>
 								<c:otherwise>
@@ -128,6 +126,6 @@
 				</td>
 			</tr>
 		</table>
-		</center>	
+		</div>	
 	</body>
 </html>

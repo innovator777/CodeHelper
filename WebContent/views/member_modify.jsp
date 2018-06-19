@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 	</style>
 </head>
 <body>
-	<p align="center"><font color=black size=100px>Code Helper</font></p>
+	<p align="center"><a href="${ctx }"><font color=black size=100px>Code Helper</font></a></p>
 	<br><br><br><br>
 	<div align="center">
 	<br>
@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
 			<tr>
 				<th>닉네임</th>
 				<td><input type="text" name="nickname" class="form-control"></td>
-				<td><center><input type="button" class="btn" value="중복확인"></center></td>
+				<td></td>
 			</tr>
 		</table>
 		<br>
