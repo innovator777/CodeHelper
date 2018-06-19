@@ -23,8 +23,8 @@ pageEncoding="UTF-8"%>
 		<tr>
 			<td width="100"><h4>비밀번호</h4></td>
 			<td>
-				<form action="#" method="post">
-					<input type="password" id="password" name="pwdCheck" value="">
+				<form action="${ctx }/memberRemove.do" method="post">
+					<input type="password" id="password" name="password" value="">
 					<input class="btn" type="submit" value="탈퇴">
 				</form>
 			</td>

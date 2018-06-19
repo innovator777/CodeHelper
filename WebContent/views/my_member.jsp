@@ -39,7 +39,7 @@
 									<h4><B>${name } 회원님</B></h4><p><center>아이디 : ${id }<br><br>
 									<Button type="button" onclick="location.href='${ctx}/memberModify.do?id=${id }'" formtarget="_self">회원정보 변경</Button>&nbsp&nbsp
 									<Button type="button" onclick="location.href='${ctx}/bankList.do?id=${id }'" formtarget="_self">내 계좌</Button>&nbsp&nbsp
-									<Button type="button" onclick="location.href='${ctx}/memberRemove.do?id=${id }'" formtarget="_self">회원탈퇴</Button>
+									<Button type="button" onclick="location.href='${ctx}/views/member_drop_password.jsp'" formtarget="_self">회원탈퇴</Button>
 									</center>
 								</td>
 							</tr>
