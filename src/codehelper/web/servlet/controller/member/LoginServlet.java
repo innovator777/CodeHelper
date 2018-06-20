@@ -1,6 +1,7 @@
 package codehelper.web.servlet.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,10 +26,11 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if(loginId.equals("admin") && password.equals("admin")) {
-			session.setAttribute("name", "������");
+			session.setAttribute("name", "������");
 			session.setAttribute("isAdmin", true);
 			session.setAttribute("loginId", loginId);
 			session.setAttribute("isLogged", true);
+			response.sendRedirect(request.getContextPath());
 		}
 		else {
 			Member member = memberService.login(loginId, password);
@@ -37,10 +39,17 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("isAdmin", false);
 				session.setAttribute("loginId", loginId);
 				session.setAttribute("isLogged", true);
+				response.sendRedirect(request.getContextPath());
+			}
+			else {
+				response.setContentType("text/html; charset=utf-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('아이디와 비밀번호를 확인해주세요.');");
+				out.println("history.back();");
+				out.println("</script>");
 			}
 		}
-		
-		response.sendRedirect(request.getContextPath());
 		
 	}
 
